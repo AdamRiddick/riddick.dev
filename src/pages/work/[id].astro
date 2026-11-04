@@ -1,0 +1,63 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Arrow from "../../components/Arrow.astro";
+export async function getStaticPaths() {
+  const projects = await getCollection("work");
+  return projects.map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<Layout
+  title={`${project.data.title} — Adam Riddick`}
+  description={project.data.summary}
+>
+  <article class="case-study shell">
+    <a class="text-link back-link" href="/#work">
+      ← Back to selected work
+    </a>
+    <header class="case-header">
+      <p class="eyebrow">
+        {project.data.number} / {project.data.category}
+      </p>
+      <h1>{project.data.title}</h1>
+      <p class="case-summary">{project.data.summary}</p>
+      <div class="case-meta">
+        <span>IRIS Software Group</span>
+        <span>{project.data.period}</span>
+        <span>{project.data.outcome}</span>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        {project.data.tags.map((tag) => (
+          <span class="tag">{tag}</span>
+        ))}
+      </div>
+    </header>
+    <div class="case-body">
+      <aside class="case-aside">
+        <div>
+          <p class="eyebrow">MY PART IN THE TEAM</p>
+          <p class="case-role">{project.data.role}</p>
+        </div>
+        <div>
+          <p class="eyebrow">WHAT CARRIES FORWARD</p>
+          <p class="case-continuity">{project.data.continuity}</p>
+        </div>
+      </aside>
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+    <div class="case-contact">
+      <h2>A shared challenge worth talking through?</h2>
+      <a class="button" href="mailto:adam@riddick.dev">
+        Let’s talk <Arrow diagonal />
+      </a>
+    </div>
+  </article>
+</Layout>

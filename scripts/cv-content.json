@@ -1,0 +1,64 @@
+{
+  "profile": "Architect with 13+ years in engineering, including five years leading architecture across three products. Owned the modernisation plan and technical direction for an Azure SaaS platform, with reporting, integration and authentication services used by 2 million+ users per month.",
+  "achievements": [
+    {
+      "title": "SaaS platform modernisation",
+      "meta": "IRIS Software Group | Senior Architect, then Senior Manager, Engineering",
+      "paragraphs": [
+        "Owned the plan and technical direction for moving a legacy monolith to a hybrid architecture, addressing tenant isolation, separate integration workflows and independent deployments. Established the software development lifecycle used for peer review and programme delivery.",
+        "Defined core MIS modules as API-first, multi-tenant .NET components operating against a single-tenant backbone and database. Defined microservices and event-driven integration on Azure.",
+        "Central Reporting, the Integrations Platform and a modern authentication server went live, used by 2 million+ users per month. Identity protocols included OAuth 2.0, OIDC and SAML 2.0."
+      ]
+    },
+    {
+      "title": "Cloud modernisation and provisioning",
+      "meta": "IRIS Software Group | Senior Architect | June 2020 - July 2025",
+      "paragraphs": [
+        "Led migration planning and Azure, .NET and SQL Server design across three products, working with developers from early options through implementation. Balanced legacy compatibility and security with operating costs. Reduced hosting costs and cut environment provisioning from days to hours."
+      ]
+    },
+    {
+      "title": "Azure costs and service recovery",
+      "meta": "IRIS Software Group | Senior Manager, Engineering | July 2025 - October 2026",
+      "paragraphs": [
+        "Delivered substantial recurring Azure savings through changes to backups, resource sizing and infrastructure retirement. Improved observability, incident detection and response, and clarified ownership of production services, significantly reducing average incident recovery time."
+      ]
+    }
+  ],
+  "career": [
+    {
+      "title": "IRIS Software Group | Senior Manager, Engineering",
+      "meta": "July 2025 - October 2026",
+      "paragraphs": [
+        "Led internationally distributed engineering teams across the UK, Eastern Europe and India, overseeing technology delivery for an education software portfolio generating \u00a325m+ in annual recurring revenue.",
+        "Led engineering for Global Payments and partnered with Product on portal renewal and integration design. Standardised the development lifecycle across teams, substantially increasing release frequency.",
+        "Embedded security controls and audit evidence into delivery for ISO 27001, ISO 9001 and Cyber Essentials certification, resolving all engineering audit findings. Led cross-team security discussions covering penetration testing and technical due diligence."
+      ]
+    },
+    {
+      "title": "IRIS Software Group | Senior Architect",
+      "meta": "June 2020 - July 2025",
+      "paragraphs": [
+        "Shaped architecture across three products spanning core applications, integrations, reporting, HR and compliance. Shaped technical roadmaps with Engineering, Product and senior stakeholders.",
+        "Designed and reviewed cross-product APIs and integrations, including identity, data isolation and shared-service operations. Established standards through design reviews, threat modelling and secure coding guidance; mentored engineers on technical decisions."
+      ]
+    }
+  ],
+  "earlier": [
+    "iSAMS | Senior Software Engineer | June 2016 - June 2020",
+    "PJA Group | Software Development Team Lead | June 2014 - June 2016",
+    "Simpson Group | .NET Analyst and Developer | June 2013 - June 2014"
+  ],
+  "technical": [
+    "<b>Architecture:</b> SaaS and hybrid architectures, legacy modernisation, multi-tenancy, tenant isolation, API-first design, microservices and event-driven integration.",
+    "<b>Cloud and applications:</b> Microsoft Azure, C#/.NET, Stencil.js/TypeScript, cloud migration and cost optimisation.",
+    "<b>Data:</b> SQL Server, Snowflake, Fivetran, data integration and business intelligence.",
+    "<b>Identity and security:</b> IdentityServer, OAuth 2.0, OIDC, SAML 2.0, single sign-on, threat modelling and secure design.",
+    "<b>Delivery:</b> Infrastructure as code, CI/CD, DevOps automation, Datadog, observability and incident response."
+  ],
+  "qualifications": [
+    "Computer Science, First Class Honours | Teesside University, 2015",
+    "Microsoft DevOps Engineer Expert | Awarded 2023",
+    "Four Top Talent Awards | Platinum recognition"
+  ]
+}

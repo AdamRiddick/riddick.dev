@@ -1,0 +1,104 @@
+---
+import "../styles/global.css";
+import "@fontsource/dm-sans/400.css";
+import "@fontsource/dm-sans/500.css";
+import "@fontsource/dm-sans/600.css";
+import "@fontsource/dm-sans/700.css";
+import "@fontsource/instrument-serif/400-italic.css";
+import "@fontsource/ibm-plex-mono/400.css";
+import Arrow from "../components/Arrow.astro";
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = "Adam Riddick — Principal Architect",
+  description = "Principal Architect with 13+ years in software engineering. SaaS modernisation, Azure architecture and engineering leadership. Based in the UK.",
+} = Astro.props;
+const home = Astro.url.pathname === "/";
+const section = (id: string) => (home ? `#${id}` : `/#${id}`);
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f7f7f0" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">
+      Skip to content
+    </a>
+    <header class="site-header">
+      <div class="shell flex items-center justify-between gap-5">
+        <a class="wordmark" href="/" aria-label="Adam Riddick home">
+          <span class="monogram">
+            ar<span>.</span>
+          </span>
+          <span>
+            Adam Riddick<span class="wordmark-role">Principal Architect</span>
+          </span>
+        </a>
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <a href={section("work")}>Selected work</a>
+          <a href={section("experience")}>Experience</a>
+          <a href={section("about")}>About</a>
+          <a class="nav-contact" href={section("contact")}>
+            Let’s talk <Arrow diagonal />
+          </a>
+        </nav>
+        <details class="mobile-menu">
+          <summary aria-label="Toggle navigation">
+            Menu <span aria-hidden="true">+</span>
+          </summary>
+          <nav aria-label="Mobile navigation">
+            <a href={section("work")}>Selected work</a>
+            <a href={section("experience")}>Experience</a>
+            <a href={section("about")}>About</a>
+            <a href={section("contact")}>Let’s talk ↗</a>
+            <a href="/adam-riddick-cv.pdf" download>
+              Download CV ↓
+            </a>
+          </nav>
+        </details>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="shell flex flex-wrap items-center justify-between gap-5">
+        <a href="/" class="footer-name">
+          Adam Riddick<span>Architecture. Delivery. Leadership.</span>
+        </a>
+        <div class="flex flex-wrap items-center gap-6">
+          <a
+            href="https://www.linkedin.com/in/adam-riddick/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn ↗
+          </a>
+          <a href="/adam-riddick-cv.pdf" download>
+            Download CV ↓
+          </a>
+          <span class="copyright">© 2026</span>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.querySelectorAll(".mobile-menu nav a").forEach((link) =>
+        link.addEventListener("click", () => {
+          document.querySelector(".mobile-menu")?.removeAttribute("open");
+        }),
+      );
+    </script>
+  </body>
+</html>
