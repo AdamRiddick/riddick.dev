@@ -4,6 +4,10 @@ Personal CV and architecture portfolio for Adam Riddick, built with Astro, TypeS
 
 Source repository: [AdamRiddick/riddick.dev](https://github.com/AdamRiddick/riddick.dev). Hosting is not yet configured.
 
+## Brand and writing direction
+
+The established theme applies to all public-facing artifacts. See [the brand guide](docs/brand.md) and [the researched editorial proposal](docs/editorial-strategy.md). Writing preferences are recorded; the proposed article format and topics are not yet implemented. The reusable [Adam Riddick writing skill](skills/adam-riddick-writing/SKILL.md) includes a [versioned voice profile](skills/adam-riddick-writing/references/voice.md), an article workflow and a brief template. The voice will be refined through Adam's edits.
+
 ## Run locally
 
 Requires Node.js >=22.23.4, as declared by the locked Astro release. This first pass was verified with Node 26.10.0.
@@ -20,6 +24,8 @@ npm run check
 npm run build
 npm run check:output
 ```
+
+The shared header stays visible while scrolling. Navigation includes Services, linking to the How I can help section, with smooth anchor scrolling and clearance beneath the header. The compact menu is used on smaller screens.
 
 The static site is generated into `dist/`. There is no server adapter, database, analytics or remote font dependency. The only browser JavaScript closes the mobile menu after selecting a link. Email links open the visitor's email application.
 
