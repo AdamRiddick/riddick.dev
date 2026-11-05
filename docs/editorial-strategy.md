@@ -6,7 +6,7 @@ Status: editorial direction with a local implementation draft. The Writing index
 
 ## Recommendation
 
-Use **Writing** in navigation and **Field notes** as the editorial section title. Build a small library of thoughtful pieces about architectural decisions, operational consequences and engineering leadership. Use a readable essay with a decision record's reasoning behind it.
+Use **Writing** consistently as the navigation and section title. Adam explicitly rejected Field notes on 5 November 2026. Keep Writing visibly separate from links to sections of the homepage. Build a small library of thoughtful pieces about architectural decisions, operational consequences and engineering leadership. Use a readable essay with a decision record's reasoning behind it.
 
 A candidate introduction: "Practical notes on architecture, operations and the decisions that teams live with."
 
@@ -90,8 +90,8 @@ Keep formal ADR identifiers, acceptance statuses and governance fields out of th
 
 Use the existing theme as defined in [brand.md](brand.md).
 
-- Typography-led index with one featured piece and a compact list of selected articles.
-- Article title, short decision-oriented description, topic and month/year. Reading time can be added if calculated honestly.
+- Typography-led index with one featured piece and a compact list of selected articles. Use plain labels such as Read the article; explain diagrams directly rather than framing them as marginal notes. There is no visible result counter.
+- Article title, short decision-oriented description, topic and month/year for published articles. Unpublished local previews omit workflow badges and dates. Reading time can be added if calculated honestly.
 - Three initial topic groups: Architecture; Operations & FinOps; Technical leadership.
 - Wide desktop space for a small annotated sketch; keep body text approximately 65–75 characters wide.
 - A quiet green summary panel near the opening; fine rules and mono captions for comparisons and figures.

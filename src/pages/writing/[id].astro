@@ -37,10 +37,10 @@ const related = visibleArticles(
 >
   <article class="shell field-note">
     <a class="text-link note-back" href="/writing/">
-      ← All field notes
+      ← All writing
     </a>
     <header class="field-note-header">
-      <p class="eyebrow">FIELD NOTES / {article.data.topic.toUpperCase()}</p>
+      <p class="eyebrow">WRITING / {article.data.topic.toUpperCase()}</p>
       <h1>{article.data.title}</h1>
       <p class="field-note-deck">{article.data.summary}</p>
       <div class="field-note-byline">
@@ -48,9 +48,7 @@ const related = visibleArticles(
           ar.
         </span>
         <span>Adam Riddick</span>
-        {article.data.draft ? (
-          <span class="draft-marker">Draft · unpublished</span>
-        ) : (
+        {!article.data.draft && (
           <time datetime={article.data.publicationMonth}>
             {articleLabel(article.data)}
           </time>
@@ -64,7 +62,7 @@ const related = visibleArticles(
     <div class="field-note-layout">
       <aside class="note-contents">
         <nav aria-label="Article contents">
-          <p class="eyebrow">IN THIS NOTE</p>
+          <p class="eyebrow">IN THIS ARTICLE</p>
           {headings
             .filter((item) => item.depth === 2)
             .map((heading) => (
@@ -93,7 +91,8 @@ const related = visibleArticles(
           {related.map((item) => (
             <a href={`/writing/${item.id}/`}>
               <span class="note-metadata">
-                {item.data.topic} · {articleLabel(item.data)}
+                {item.data.topic}
+                {articleLabel(item.data) && ` · ${articleLabel(item.data)}`}
               </span>
               <h2>{item.data.title}</h2>
               <Arrow diagonal />

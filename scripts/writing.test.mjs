@@ -20,10 +20,10 @@ test("unpublished drafts are excluded unless preview is explicitly enabled", () 
   ]);
 });
 test("a draft never acquires an implied publication date", () => {
-  assert.equal(articleLabel({ draft: true }), "Draft");
+  assert.equal(articleLabel({ draft: true }), undefined);
   assert.equal(
     articleLabel({ draft: true, publicationMonth: "2023-04" }),
-    "Draft",
+    undefined,
   );
   assert.throws(
     () => articleLabel({ draft: false }),

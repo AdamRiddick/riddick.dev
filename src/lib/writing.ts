@@ -19,8 +19,8 @@ export function formatPublicationMonth(month: string): string {
 export function articleLabel(data: {
   draft: boolean;
   publicationMonth?: string;
-}): string {
-  if (data.draft) return "Draft";
+}): string | undefined {
+  if (data.draft) return undefined;
   if (!data.publicationMonth)
     throw new Error("Published articles require a publication month.");
   return formatPublicationMonth(data.publicationMonth);

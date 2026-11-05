@@ -41,6 +41,8 @@ New first-person stories and additional achievements need an identifiable factua
 
 ## Writing preferences already requested
 
+Writing is the single public section name. In navigation, separate this standalone page from the homepage section links. Use helpful reader-facing copy rather than workflow badges, decorative notebook terminology or visible article counts. These presentation choices do not change unpublished-content exclusion from production.
+
 - No article comments.
 - Show publication month and year rather than day-level dates.
 - Publish selected high-value articles without a fixed public schedule.

@@ -15,7 +15,7 @@ const articles = visibleArticles(
 ).sort((a, b) => a.data.order - b.data.order);
 const [featured, ...remaining] = articles;
 const topics = [
-  "All notes",
+  "All articles",
   "Architecture",
   "Operations & FinOps",
   "Technical leadership",
@@ -23,14 +23,14 @@ const topics = [
 ---
 
 <Layout
-  title="Field notes — Adam Riddick"
+  title="Writing — Adam Riddick"
   description="Practical notes on architecture, operations and the decisions that teams live with."
   noindex={import.meta.env.DEV}
 >
   <div class="shell writing-index">
     <header class="writing-intro">
       <div>
-        <p class="eyebrow">WRITING / FIELD NOTES</p>
+        <p class="eyebrow">WRITING</p>
         <h1>
           The thinking
           <br />
@@ -43,12 +43,12 @@ const topics = [
           teams live with.
         </p>
         <p>
-          A little context, the trade-offs, and something useful to take back to
-          your team.
+          What shaped the decision, what it meant for the team, and when a
+          different approach might make more sense.
         </p>
-        {articles.some((article) => article.data.draft) && (
-          <span class="draft-marker">Local preview · unpublished drafts</span>
-        )}
+        <span class="writing-cadence">
+          Published when there’s something worth sharing.
+        </span>
       </div>
     </header>
     {articles.length > 0 ? (
@@ -76,13 +76,15 @@ const topics = [
                 <p class="eyebrow">01 / A GOOD PLACE TO START</p>
                 <div class="note-metadata">
                   <span>{featured.data.topic}</span>
-                  <span>{articleLabel(featured.data)}</span>
+                  {articleLabel(featured.data) && (
+                    <span>{articleLabel(featured.data)}</span>
+                  )}
                   <span>{readingMinutes(featured.body ?? "")} min read</span>
                 </div>
                 <h2>{featured.data.title}</h2>
                 <p>{featured.data.summary}</p>
                 <span class="featured-read">
-                  Read the field note <Arrow diagonal />
+                  Read the article <Arrow diagonal />
                 </span>
               </div>
               <WritingSketch kind={featured.data.sketch} compact />
@@ -101,7 +103,9 @@ const topics = [
                 <div class="note-row-copy">
                   <div class="note-metadata">
                     <span>{article.data.topic}</span>
-                    <span>{articleLabel(article.data)}</span>
+                    {articleLabel(article.data) && (
+                      <span>{articleLabel(article.data)}</span>
+                    )}
                     <span>{readingMinutes(article.body ?? "")} min read</span>
                   </div>
                   <h2>{article.data.title}</h2>
@@ -115,19 +119,17 @@ const topics = [
           </div>
         </div>
         <p
-          class="writing-results-note"
+          class="sr-only"
           role="status"
           aria-live="polite"
           data-writing-status
-        >
-          {articles.length} field notes · Select a topic to explore.
-        </p>
+        ></p>
       </>
     ) : (
       <div class="writing-empty">
         <p class="eyebrow">TAKING SHAPE</p>
         <h2>
-          The first notes
+          The first articles
           <br />
           <em>are on their way.</em>
         </h2>
@@ -174,7 +176,7 @@ const topics = [
           if (show) count++;
         });
         if (status)
-          status.textContent = `${count} field ${count === 1 ? "note" : "notes"}${topic === "all" ? "" : ` on ${topic?.toLowerCase()}`}.`;
+          status.textContent = `${count} ${count === 1 ? "article" : "articles"} shown${topic === "all" ? "" : ` for ${topic}`}.`;
       }),
     );
   </script>

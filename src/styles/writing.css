@@ -1,6 +1,6 @@
-/* Field notes: a quiet editorial space within the existing identity. */
-.desktop-nav a[aria-current="page"],
-.mobile-menu a[aria-current="page"] {
+/* Writing: a quiet editorial space within the existing identity. */
+.desktop-nav a[aria-current],
+.mobile-menu a[aria-current] {
   color: #718448;
 }
 .writing-index {
@@ -34,7 +34,7 @@
   color: var(--ink);
   font-size: 16px;
 }
-.draft-marker {
+.writing-cadence {
   display: inline-flex;
   font-family: var(--font-mono);
   font-size: 8px;
@@ -187,12 +187,6 @@
 }
 [data-writing-topic][hidden] {
   display: none;
-}
-.writing-results-note {
-  font-family: var(--font-mono);
-  font-size: 8px;
-  color: #79836f;
-  margin-top: 17px;
 }
 .writing-endnote {
   display: grid;

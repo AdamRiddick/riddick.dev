@@ -1,6 +1,6 @@
 # Adam's working writing voice
 
-Version: 0.1. Established 5 November 2026.
+Version: 0.2. Updated 5 November 2026.
 
 Status: repeatable starting direction. Explicit preferences are established; long-form rhythm and personal mannerisms remain open to calibration through article edits.
 
@@ -10,7 +10,7 @@ The current basis is Adam's direct requests, conversational phrasing and correct
 
 The research authors are editorial benchmarks, not prose models. The existing website and CV were substantially agent-generated, so they are not independent samples of Adam's natural writing. Publicly attributed social posts have not been designated as representative technical prose and are not calibration references.
 
-No approved long-form reference articles are recorded yet. When Adam chooses one, record its repository path or supplied link here. Preserve sample provenance; do not relabel generated examples as user-authored prose.
+No complete long-form reference articles have been designated yet. Adam has identified the Writing index’s closing endnote, headed "A note on these notes", as close to his prose. The reference is only that short passage in `src/pages/writing/index.astro`, not the whole page or the article bodies. When Adam chooses one, record its repository path or supplied link here. Preserve sample provenance; do not relabel generated examples as user-authored prose.
 
 ## Preferences established by Adam
 
@@ -22,6 +22,14 @@ No approved long-form reference articles are recorded yet. When Adam chooses one
 - Use the same coherent visual identity across articles and other site material.
 - No comments; publication month and year rather than an exact day.
 - Develop this profile through edits instead of requiring a sample collection before starting.
+
+## First explicit prose feedback
+
+Adam liked the closing endnote's straightforward explanation of choices, constraints and responsibilities, especially its acknowledgement that another situation may call for another answer. Use that as a positive signal for contextual, conversational explanation. He did not like the introductory "A little context..." sentence or the workflow-oriented preview badge.
+
+He chose Writing over Field notes, asked for Read the article rather than Read the field note, and found Notes in the margin unclear as a figure heading. These are presentation and naming preferences, not a ban on the ordinary word "note"; he explicitly liked A note on these notes. Preserve useful small explanatory sections but give them clear, relevant wording.
+
+The article bodies are still awaiting his review. Do not infer approval of their voice from this layout feedback.
 
 ## Working prose choices
 
@@ -77,9 +85,10 @@ Use future edits to test this direction. Do not repeatedly reproduce this wordin
 
 ## Revision record
 
-| Date            | Basis                                       | Retained direction                                                                                                                    |
-| --------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| 5 November 2026 | Adam's explicit site and editorial requests | Team contribution, ownership, practical reasoning, measured tone, no comments, month/year publication display and a consistent theme. |
-| 5 November 2026 | Adam's response to the sample request       | Start with a working profile and learn through article edits. Long-form calibration remains open.                                     |
+| Date            | Basis                                       | Retained direction                                                                                                                                                                                                                                   |
+| --------------- | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 5 November 2026 | Adam's explicit site and editorial requests | Team contribution, ownership, practical reasoning, measured tone, no comments, month/year publication display and a consistent theme.                                                                                                                |
+| 5 November 2026 | Adam's response to the sample request       | Start with a working profile and learn through article edits. Long-form calibration remains open.                                                                                                                                                    |
+| 5 November 2026 | First Writing-page review                   | Retain the contextual closing endnote as a limited positive voice reference. Use Writing consistently and plain reader-facing labels; omit workflow badges, decorative marginal-note wording and visible counters. Article prose remains unreviewed. |
 
 When adding an entry, record the actual preference and its scope, not a raw private excerpt. Reconcile superseded guidance instead of accumulating contradictory rules. A change to the facts of one article is not automatically a change to this voice profile.

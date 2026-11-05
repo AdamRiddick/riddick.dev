@@ -99,10 +99,10 @@ summary:focus-visible {
   gap: 32px;
   font-size: 13px;
 }
-.desktop-nav > a {
+.desktop-nav a {
   transition: color 0.2s;
 }
-.desktop-nav > a:hover,
+.desktop-nav a:hover,
 .text-link:hover {
   color: #718448;
 }
@@ -948,12 +948,12 @@ h2 em {
     box-shadow: 0 12px 25px #203c3410;
     z-index: 5;
   }
-  .mobile-menu nav > a {
+  .mobile-menu nav a {
     display: block;
     padding: 12px;
     border-bottom: 1px solid var(--line);
   }
-  .mobile-menu nav > a:last-child {
+  .mobile-menu nav a:last-child {
     border: 0;
   }
 }
@@ -1367,4 +1367,31 @@ h2 em {
   .diagram-foundations span {
     padding-inline: 10px;
   }
+}
+
+/* Separate homepage sections from the standalone Writing page. */
+.desktop-nav {
+  gap: 26px;
+}
+.desktop-nav .nav-sections {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+.desktop-nav .nav-contact {
+  border: 0;
+  padding-left: 0;
+}
+.nav-writing {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-left: 1px solid var(--line);
+  padding-left: 26px;
+  font-weight: 500;
+}
+.mobile-menu .nav-pages {
+  border-top: 1px solid var(--line);
+  margin-top: 8px;
+  padding-top: 8px;
 }

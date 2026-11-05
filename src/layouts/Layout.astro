@@ -50,20 +50,27 @@ const section = (id: string) => (home ? `#${id}` : `/#${id}`);
           </span>
         </a>
         <nav class="desktop-nav" aria-label="Main navigation">
-          <a href={section("work")}>Selected work</a>
-          <a href={section("expertise")}>Services</a>
-          <a href={section("experience")}>Experience</a>
+          <div class="nav-sections">
+            <a href={section("work")}>Selected work</a>
+            <a href={section("expertise")}>Services</a>
+            <a href={section("experience")}>Experience</a>
+            <a href={section("about")}>About</a>
+            <a class="nav-contact" href={section("contact")}>
+              Let’s talk
+            </a>
+          </div>
           <a
+            class="nav-writing"
             href="/writing/"
             aria-current={
-              Astro.url.pathname.startsWith("/writing") ? "page" : undefined
+              Astro.url.pathname === "/writing/"
+                ? "page"
+                : Astro.url.pathname.startsWith("/writing/")
+                  ? "location"
+                  : undefined
             }
           >
-            Writing
-          </a>
-          <a href={section("about")}>About</a>
-          <a class="nav-contact" href={section("contact")}>
-            Let’s talk <Arrow diagonal />
+            Writing <Arrow diagonal />
           </a>
         </nav>
         <details class="mobile-menu">
@@ -71,22 +78,30 @@ const section = (id: string) => (home ? `#${id}` : `/#${id}`);
             Menu <span aria-hidden="true">+</span>
           </summary>
           <nav aria-label="Mobile navigation">
-            <a href={section("work")}>Selected work</a>
-            <a href={section("expertise")}>Services</a>
-            <a href={section("experience")}>Experience</a>
-            <a
-              href="/writing/"
-              aria-current={
-                Astro.url.pathname.startsWith("/writing") ? "page" : undefined
-              }
-            >
-              Writing
-            </a>
-            <a href={section("about")}>About</a>
-            <a href={section("contact")}>Let’s talk ↗</a>
-            <a href="/adam-riddick-cv.pdf" download>
-              Download CV ↓
-            </a>
+            <div class="nav-sections">
+              <a href={section("work")}>Selected work</a>
+              <a href={section("expertise")}>Services</a>
+              <a href={section("experience")}>Experience</a>
+              <a href={section("about")}>About</a>
+              <a href={section("contact")}>Let’s talk ↗</a>
+            </div>
+            <div class="nav-pages">
+              <a
+                href="/writing/"
+                aria-current={
+                  Astro.url.pathname === "/writing/"
+                    ? "page"
+                    : Astro.url.pathname.startsWith("/writing/")
+                      ? "location"
+                      : undefined
+                }
+              >
+                Writing ↗
+              </a>
+              <a href="/adam-riddick-cv.pdf" download>
+                Download CV ↓
+              </a>
+            </div>
           </nav>
         </details>
       </div>

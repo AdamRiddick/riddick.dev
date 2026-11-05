@@ -33,7 +33,7 @@ The static site is generated into `dist/`. There is no server adapter, database,
 ## Edit the content
 
 - `src/pages/index.astro`: homepage copy, expertise and career history.
-- `src/pages/writing/`: Field notes index and article template.
+- `src/pages/writing/`: Writing index and article template.
 - `src/content/writing/*.md`: draft and published articles.
 - `src/lib/writing.ts`: visibility, month labels and estimated reading time.
 - `src/styles/writing.css`: article and Writing index presentation.
@@ -49,13 +49,13 @@ To regenerate the public CV, install Python's `reportlab` package and run `pytho
 
 ## Writing locally
 
-Run `npm run dev`, then open `/writing/`. Development mode includes the three initial draft essays; each is explicitly marked as unpublished and has no fabricated publication date. These pieces are general analyses, not claims about unverified personal incidents or historical publications. They are not yet approved voice references.
+Run `npm run dev`, then open `/writing/`. Development mode includes the three initial unpublished essays. The reading interface omits workflow labels and publication dates for these articles, while the internal publication flag still excludes them from production. These pieces are general analyses, not claims about unverified personal incidents or historical publications. They are not yet approved voice references.
 
 Articles are Markdown files in `src/content/writing/`. Frontmatter includes `title`, `summary`, `topic`, `takeaway`, `draft`, `order` and a `sketch` variant. Draft defaults to true. To publish an article, explicitly set `draft: false` and a quoted `publicationMonth: "YYYY-MM"` after the content is ready. Schema validation rejects a published article without a month. An optional `experiencePeriod` is displayed separately for a genuine retrospective.
 
 `npm run build` and `npm run preview` reflect production: drafts are excluded from the index, related links and generated article routes. Until articles are published, the Writing index shows an honest empty state. Development draft pages use `noindex, nofollow`. There is no comments system, CMS, database, subscription form or RSS feed in this first pass.
 
-The topic filters use native buttons and an announced result count. All notes remain available if JavaScript is unavailable. Long articles have a desktop contents list, a short takeaway and an original diagram in the site theme.
+The topic filters use native buttons and a screen-reader-only result announcement; there is no visible article counter. Writing is a standalone page separated from the homepage section links in both navigation layouts. All notes remain available if JavaScript is unavailable. Long articles have a desktop contents list, a short takeaway and an original diagram in the site theme.
 
 ## Content provenance and masking
 
