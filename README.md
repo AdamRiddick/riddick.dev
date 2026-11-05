@@ -25,6 +25,8 @@ npm run build
 npm run check:output
 ```
 
+The shared header stays visible while scrolling. Navigation includes Services, linking to the How I can help section, with smooth anchor scrolling and clearance beneath the header. The compact menu is used on smaller screens.
+
 The static site is generated into `dist/`. There is no server adapter, database, analytics or remote font dependency. The only browser JavaScript closes the mobile menu after selecting a link. Email links open the visitor's email application.
 
 ## Edit the content

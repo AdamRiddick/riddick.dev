@@ -48,6 +48,7 @@ const section = (id: string) => (home ? `#${id}` : `/#${id}`);
         </a>
         <nav class="desktop-nav" aria-label="Main navigation">
           <a href={section("work")}>Selected work</a>
+          <a href={section("expertise")}>Services</a>
           <a href={section("experience")}>Experience</a>
           <a href={section("about")}>About</a>
           <a class="nav-contact" href={section("contact")}>
@@ -60,6 +61,7 @@ const section = (id: string) => (home ? `#${id}` : `/#${id}`);
           </summary>
           <nav aria-label="Mobile navigation">
             <a href={section("work")}>Selected work</a>
+            <a href={section("expertise")}>Services</a>
             <a href={section("experience")}>Experience</a>
             <a href={section("about")}>About</a>
             <a href={section("contact")}>Let’s talk ↗</a>
