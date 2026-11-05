@@ -290,16 +290,7 @@
 .note-contents a:hover {
   color: var(--green);
 }
-.note-margin {
-  border-top: 1px solid var(--line);
-  padding-top: 20px;
-  font-family: var(--serif);
-  font-style: italic;
-  color: #748265;
-  font-size: 23px;
-  line-height: 1.4;
-  margin-top: 25px;
-}
+
 .note-takeaway {
   padding: 25px 28px;
   background: var(--green);
