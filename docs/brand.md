@@ -49,4 +49,4 @@ Writing is the single public section name. In navigation, separate this standalo
 - Publish selected high-value articles without a fixed public schedule.
 - Give older experience room through a small retrospective collection; see the proposed strategy for provenance and dating.
 
-The specific section name, article format and initial topics in [the editorial proposal](editorial-strategy.md) are recommendations, not yet implemented features.
+The Writing section and three initial articles are implemented and approved for publication in November 2026. Other proposals in [the editorial strategy](editorial-strategy.md) remain recommendations unless separately approved.

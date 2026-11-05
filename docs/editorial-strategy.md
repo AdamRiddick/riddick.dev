@@ -2,7 +2,7 @@
 
 Research date: 5 November 2026.
 
-Status: editorial direction with a local implementation draft. The Writing index and article template are implemented, with three unpublished general-analysis essays available only in development. They are not approved voice references or historical publications. Confirmed brand and user preferences are recorded separately in [brand.md](brand.md).
+Status: editorial direction with the Writing index and article template implemented. Adam approved the three initial general-analysis essays for publication in November 2026. They are included in production builds; publication approval does not make the unedited prose an independent voice reference. Confirmed brand and user preferences are recorded separately in [brand.md](brand.md).
 
 ## Recommendation
 

@@ -6,7 +6,7 @@ Source repository: [AdamRiddick/riddick.dev](https://github.com/AdamRiddick/ridd
 
 ## Brand and writing direction
 
-The established theme applies to all public-facing artifacts. See [the brand guide](docs/brand.md) and [the researched editorial proposal](docs/editorial-strategy.md). The Writing section is implemented as a local draft preview; its three initial essays remain unpublished and open to revision. The reusable [Adam Riddick writing skill](skills/adam-riddick-writing/SKILL.md) includes a [versioned voice profile](skills/adam-riddick-writing/references/voice.md), an article workflow and a brief template. The voice will be refined through Adam's edits.
+The established theme applies to all public-facing artifacts. See [the brand guide](docs/brand.md) and [the researched editorial proposal](docs/editorial-strategy.md). The Writing section includes three initial essays approved for publication in November 2026 and included in production builds. The reusable [Adam Riddick writing skill](skills/adam-riddick-writing/SKILL.md) includes a [versioned voice profile](skills/adam-riddick-writing/references/voice.md), an article workflow and a brief template. The voice will be refined through Adam's edits.
 
 ## Run locally
 
@@ -49,11 +49,11 @@ To regenerate the public CV, install Python's `reportlab` package and run `pytho
 
 ## Writing locally
 
-Run `npm run dev`, then open `/writing/`. Development mode includes the three initial unpublished essays. The reading interface omits workflow labels and publication dates for these articles, while the internal publication flag still excludes them from production. These pieces are general analyses, not claims about unverified personal incidents or historical publications. They are not yet approved voice references.
+Run `npm run dev`, then open `/writing/`. The three initial essays are published with November 2026 month labels. Development mode also includes any future unpublished articles, without workflow labels or implied publication dates. These pieces are general analyses, not claims about unverified personal incidents or historical publications. They are not yet approved voice references.
 
 Articles are Markdown files in `src/content/writing/`. Frontmatter includes `title`, `summary`, `topic`, `takeaway`, `draft`, `order` and a `sketch` variant. Draft defaults to true. To publish an article, explicitly set `draft: false` and a quoted `publicationMonth: "YYYY-MM"` after the content is ready. Schema validation rejects a published article without a month. An optional `experiencePeriod` is displayed separately for a genuine retrospective.
 
-`npm run build` and `npm run preview` reflect production: drafts are excluded from the index, related links and generated article routes. Until articles are published, the Writing index shows an honest empty state. Development draft pages use `noindex, nofollow`. There is no comments system, CMS, database, subscription form or RSS feed in this first pass.
+`npm run build` and `npm run preview` reflect production: drafts are excluded from the index, related links and generated article routes. If no published articles are available, the Writing index shows an empty state. Development draft pages use `noindex, nofollow`. There is no comments system, CMS, database, subscription form or RSS feed in this first pass.
 
 The topic filters use native buttons and a screen-reader-only result announcement; there is no visible article counter. Writing is a standalone page separated from the homepage section links in both navigation layouts. All notes remain available if JavaScript is unavailable. Long articles have a desktop contents list, a short takeaway and an original diagram in the site theme.
 

@@ -3,7 +3,8 @@ title: "When the application becomes multi-tenant before the database does"
 summary: "A shared application and separate tenant databases can coexist. The important work is making the boundary explicit."
 topic: "Architecture"
 takeaway: "Choose the application and data boundaries deliberately. Make tenant context, routing and operational responsibility clear across every path, including background work and reporting."
-draft: true
+draft: false
+publicationMonth: "2026-11"
 order: 3
 sketch: "tenancy"
 ---

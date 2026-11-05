@@ -3,7 +3,8 @@ title: "The handover is part of the architecture"
 summary: "A system needs to remain understandable, operable and changeable after the person who shaped it has moved on."
 topic: "Technical leadership"
 takeaway: "Treat the team’s ability to own the system as part of the design. Share the reasoning, make responsibilities clear and test whether someone else can take the next decision."
-draft: true
+draft: false
+publicationMonth: "2026-11"
 order: 1
 sketch: "handover"
 ---

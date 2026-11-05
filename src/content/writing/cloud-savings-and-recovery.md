@@ -3,7 +3,8 @@ title: "A cloud saving is only a saving if you can still recover"
 summary: "Cloud costs and recovery expectations belong in the same conversation. A smaller bill is only one part of the result."
 topic: "Operations & FinOps"
 takeaway: "Review a proposed saving against the service’s recovery needs. Make the compromise explicit, agree who owns it and check that the recovery path still works."
-draft: true
+draft: false
+publicationMonth: "2026-11"
 order: 2
 sketch: "recovery"
 ---
