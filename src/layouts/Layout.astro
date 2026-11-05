@@ -10,8 +10,10 @@ import Arrow from "../components/Arrow.astro";
 interface Props {
   title?: string;
   description?: string;
+  noindex?: boolean;
 }
 const {
+  noindex = false,
   title = "Adam Riddick — Principal Architect",
   description = "Principal Architect with 13+ years in software engineering. SaaS modernisation, Azure architecture and engineering leadership. Based in the UK.",
 } = Astro.props;
@@ -25,6 +27,7 @@ const section = (id: string) => (home ? `#${id}` : `/#${id}`);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <meta name="theme-color" content="#f7f7f0" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -47,12 +50,27 @@ const section = (id: string) => (home ? `#${id}` : `/#${id}`);
           </span>
         </a>
         <nav class="desktop-nav" aria-label="Main navigation">
-          <a href={section("work")}>Selected work</a>
-          <a href={section("expertise")}>Services</a>
-          <a href={section("experience")}>Experience</a>
-          <a href={section("about")}>About</a>
-          <a class="nav-contact" href={section("contact")}>
-            Let’s talk <Arrow diagonal />
+          <div class="nav-sections">
+            <a href={section("work")}>Selected work</a>
+            <a href={section("expertise")}>Services</a>
+            <a href={section("experience")}>Experience</a>
+            <a href={section("about")}>About</a>
+            <a class="nav-contact" href={section("contact")}>
+              Let’s talk
+            </a>
+          </div>
+          <a
+            class="nav-writing"
+            href="/writing/"
+            aria-current={
+              Astro.url.pathname === "/writing/"
+                ? "page"
+                : Astro.url.pathname.startsWith("/writing/")
+                  ? "location"
+                  : undefined
+            }
+          >
+            Writing <Arrow diagonal />
           </a>
         </nav>
         <details class="mobile-menu">
@@ -60,14 +78,30 @@ const section = (id: string) => (home ? `#${id}` : `/#${id}`);
             Menu <span aria-hidden="true">+</span>
           </summary>
           <nav aria-label="Mobile navigation">
-            <a href={section("work")}>Selected work</a>
-            <a href={section("expertise")}>Services</a>
-            <a href={section("experience")}>Experience</a>
-            <a href={section("about")}>About</a>
-            <a href={section("contact")}>Let’s talk ↗</a>
-            <a href="/adam-riddick-cv.pdf" download>
-              Download CV ↓
-            </a>
+            <div class="nav-sections">
+              <a href={section("work")}>Selected work</a>
+              <a href={section("expertise")}>Services</a>
+              <a href={section("experience")}>Experience</a>
+              <a href={section("about")}>About</a>
+              <a href={section("contact")}>Let’s talk ↗</a>
+            </div>
+            <div class="nav-pages">
+              <a
+                href="/writing/"
+                aria-current={
+                  Astro.url.pathname === "/writing/"
+                    ? "page"
+                    : Astro.url.pathname.startsWith("/writing/")
+                      ? "location"
+                      : undefined
+                }
+              >
+                Writing ↗
+              </a>
+              <a href="/adam-riddick-cv.pdf" download>
+                Download CV ↓
+              </a>
+            </div>
           </nav>
         </details>
       </div>

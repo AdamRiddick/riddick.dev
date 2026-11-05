@@ -16,6 +16,7 @@ Carry the existing website theme through every public-facing artifact: articles,
 - Instrument Serif italic for selective headline emphasis.
 - IBM Plex Mono for short section labels, figure captions and supporting metadata.
 - The `ar.` monogram, simple architectural line work, restrained diagrams and numbered sections.
+- Article illustrations must vary in composition to explain their subject. Keep the visual language consistent, but do not reuse one stack of boxes with different labels for every topic.
 - Compact editorial spacing, readable text and subtle interactions. Avoid oversized empty areas.
 - Use the established components and tokens in `src/styles/global.css` as the implementation reference. Embed the same fonts in PDF exports and retain their licenses.
 
@@ -41,9 +42,11 @@ New first-person stories and additional achievements need an identifiable factua
 
 ## Writing preferences already requested
 
+Writing is the single public section name. In navigation, separate this standalone page from the homepage section links. Use helpful reader-facing copy rather than workflow badges, decorative notebook terminology or visible article counts. These presentation choices do not change unpublished-content exclusion from production.
+
 - No article comments.
 - Show publication month and year rather than day-level dates.
 - Publish selected high-value articles without a fixed public schedule.
 - Give older experience room through a small retrospective collection; see the proposed strategy for provenance and dating.
 
-The specific section name, article format and initial topics in [the editorial proposal](editorial-strategy.md) are recommendations, not yet implemented features.
+The Writing section and three initial articles are implemented and approved for publication in November 2026. Other proposals in [the editorial strategy](editorial-strategy.md) remain recommendations unless separately approved.

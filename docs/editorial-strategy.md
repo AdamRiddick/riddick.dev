@@ -2,11 +2,11 @@
 
 Research date: 5 November 2026.
 
-Status: proposal for discussion. The writing section and articles are not implemented or published. Confirmed brand and user preferences are recorded separately in [brand.md](brand.md).
+Status: editorial direction with the Writing index and article template implemented. Adam approved the three initial general-analysis essays for publication in November 2026. They are included in production builds; publication approval does not make the unedited prose an independent voice reference. Confirmed brand and user preferences are recorded separately in [brand.md](brand.md).
 
 ## Recommendation
 
-Use **Writing** in navigation and **Field notes** as the editorial section title. Build a small library of thoughtful pieces about architectural decisions, operational consequences and engineering leadership. Use a readable essay with a decision record's reasoning behind it.
+Use **Writing** consistently as the navigation and section title. Adam explicitly rejected Field notes on 5 November 2026. Keep Writing visibly separate from links to sections of the homepage. Build a small library of thoughtful pieces about architectural decisions, operational consequences and engineering leadership. Use a readable essay with a decision record's reasoning behind it.
 
 A candidate introduction: "Practical notes on architecture, operations and the decisions that teams live with."
 
@@ -90,8 +90,8 @@ Keep formal ADR identifiers, acceptance statuses and governance fields out of th
 
 Use the existing theme as defined in [brand.md](brand.md).
 
-- Typography-led index with one featured piece and a compact list of selected articles.
-- Article title, short decision-oriented description, topic and month/year. Reading time can be added if calculated honestly.
+- Typography-led index with one featured piece and a compact list of selected articles. Use plain labels such as Read the article; explain diagrams directly rather than framing them as marginal notes. There is no visible result counter.
+- Article title, short decision-oriented description, topic and month/year for published articles. Unpublished local previews omit workflow badges and dates. Reading time can be added if calculated honestly.
 - Three initial topic groups: Architecture; Operations & FinOps; Technical leadership.
 - Wide desktop space for a small annotated sketch; keep body text approximately 65–75 characters wide.
 - A quiet green summary panel near the opening; fine rules and mono captions for comparisons and figures.
@@ -156,4 +156,4 @@ Before a piece becomes public:
 
 ## Next step
 
-Choose one flagship topic, gather its factual basis and write a representative article before implementing the final index and article templates. That gives the design a real piece to serve and tests whether the proposed format feels readable rather than bureaucratic.
+Review the local `/writing/` page and the handover essay first. Use Adam's actual edits to refine the layout, argument and voice profile. Gather project-specific evidence only where an article is deliberately being developed into a personal case study. The implementation does not expose drafts in production builds.

@@ -1,0 +1,111 @@
+---
+import "../../styles/writing.css";
+import { getCollection, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Arrow from "../../components/Arrow.astro";
+import WritingSketch from "../../components/WritingSketch.astro";
+import {
+  visibleArticles,
+  articleLabel,
+  readingMinutes,
+} from "../../lib/writing";
+export async function getStaticPaths() {
+  return visibleArticles(
+    await getCollection("writing"),
+    import.meta.env.DEV,
+  ).map((article) => ({ params: { id: article.id }, props: { article } }));
+}
+interface Props {
+  article: CollectionEntry<"writing">;
+}
+const { article } = Astro.props;
+const { Content, headings } = await render(article);
+const related = visibleArticles(
+  await getCollection("writing"),
+  import.meta.env.DEV,
+)
+  .filter((item) => item.id !== article.id)
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 2);
+---
+
+<Layout
+  title={`${article.data.title} — Adam Riddick`}
+  description={article.data.summary}
+  noindex={article.data.draft}
+>
+  <article class="shell field-note">
+    <a class="text-link note-back" href="/writing/">
+      ← All writing
+    </a>
+    <header class="field-note-header">
+      <p class="eyebrow">WRITING / {article.data.topic.toUpperCase()}</p>
+      <h1>{article.data.title}</h1>
+      <p class="field-note-deck">{article.data.summary}</p>
+      <div class="field-note-byline">
+        <span class="byline-avatar" aria-hidden="true">
+          ar.
+        </span>
+        <span>Adam Riddick</span>
+        {!article.data.draft && (
+          <time datetime={article.data.publicationMonth}>
+            {articleLabel(article.data)}
+          </time>
+        )}
+        <span>{readingMinutes(article.body ?? "")} min read</span>
+        {article.data.experiencePeriod && (
+          <span>Retrospective: {article.data.experiencePeriod}</span>
+        )}
+      </div>
+    </header>
+    <div class="field-note-layout">
+      <aside class="note-contents">
+        <nav aria-label="Article contents">
+          <p class="eyebrow">IN THIS ARTICLE</p>
+          {headings
+            .filter((item) => item.depth === 2)
+            .map((heading) => (
+              <a href={`#${heading.slug}`}>{heading.text}</a>
+            ))}
+        </nav>
+      </aside>
+      <div class="field-note-content">
+        <div class="note-takeaway">
+          <p class="eyebrow">THE SHORT VERSION</p>
+          <p>{article.data.takeaway}</p>
+        </div>
+        <WritingSketch kind={article.data.sketch} />
+        <div class="article-prose">
+          <Content />
+        </div>
+      </div>
+    </div>
+    {related.length > 0 && (
+      <section class="related-notes" aria-label="Related articles">
+        <p class="eyebrow">KEEP EXPLORING</p>
+        <div>
+          {related.map((item) => (
+            <a href={`/writing/${item.id}/`}>
+              <span class="note-metadata">
+                {item.data.topic}
+                {articleLabel(item.data) && ` · ${articleLabel(item.data)}`}
+              </span>
+              <h2>{item.data.title}</h2>
+              <Arrow diagonal />
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+    <div class="note-conversation">
+      <div>
+        <p class="eyebrow">CONTINUE THE CONVERSATION</p>
+        <p>Working through a similar decision?</p>
+      </div>
+      <a class="text-link" href="mailto:adam@riddick.dev">
+        Let’s talk <Arrow diagonal />
+      </a>
+    </div>
+  </article>
+</Layout>
