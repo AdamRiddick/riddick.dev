@@ -16,6 +16,7 @@ Carry the existing website theme through every public-facing artifact: articles,
 - Instrument Serif italic for selective headline emphasis.
 - IBM Plex Mono for short section labels, figure captions and supporting metadata.
 - The `ar.` monogram, simple architectural line work, restrained diagrams and numbered sections.
+- Article illustrations must vary in composition to explain their subject. Keep the visual language consistent, but do not reuse one stack of boxes with different labels for every topic.
 - Compact editorial spacing, readable text and subtle interactions. Avoid oversized empty areas.
 - Use the established components and tokens in `src/styles/global.css` as the implementation reference. Embed the same fonts in PDF exports and retain their licenses.
 

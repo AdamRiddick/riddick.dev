@@ -6,19 +6,22 @@ interface Props {
 const { kind = "handover", compact = false } = Astro.props;
 const sketches = {
   handover: {
-    title: "A system the team can keep moving",
-    labels: ["Shared context", "Clear ownership", "Confident change"],
-    caption: "The decisions travel with the system.",
+    title: "Context and responsibility shared around the team",
+    description:
+      "A team sits at the centre of shared decision context, service ownership and the next change. The work continues through the team rather than a single architect.",
+    caption: "Shared understanding gives the team room to act.",
   },
   recovery: {
-    title: "Consider the whole cost of the decision",
-    labels: ["Operating cost", "Recovery needs", "A tested balance"],
-    caption: "Cost and recovery belong in the same conversation.",
+    title: "Balance cloud spend with recovery needs",
+    description:
+      "A balance scale holds operating cost on one side and recovery needs on the other, supported by a tested recovery path. The illustration is conceptual and contains no measured values.",
+    caption: "Review the bill and the recovery path together.",
   },
   tenancy: {
-    title: "Make the isolation boundary explicit",
-    labels: ["Tenant context", "Trusted routing", "Isolated data"],
-    caption: "A shared application can serve separate data stores.",
+    title: "A shared application routes to separate tenant databases",
+    description:
+      "Verified tenant context enters a shared application that authorises and routes each operation to a separate database for tenant A, B or C. The diagram is conceptual, not a production topology.",
+    caption: "Shared application. Explicit boundaries. Separate data stores.",
   },
 };
 const sketch = sketches[kind];
@@ -29,61 +32,251 @@ const sketch = sketches[kind];
     <span>THE IDEA AT A GLANCE</span>
     <span aria-hidden="true">FIG. 01</span>
   </div>
-  <svg viewBox="0 0 400 260" role="img" aria-label={sketch.title}>
+  <svg
+    viewBox="0 0 480 280"
+    role="img"
+    aria-labelledby={`sketch-title-${kind} sketch-description-${kind}`}
+  >
+    <title id={`sketch-title-${kind}`}>{sketch.title}</title>
+    <desc id={`sketch-description-${kind}`}>{sketch.description}</desc>
     <defs>
       <pattern
-        id={`note-dots-${kind}`}
+        id={`sketch-grid-${kind}`}
         width="16"
         height="16"
         patternUnits="userSpaceOnUse"
       >
-        <circle cx="1" cy="1" r=".7" fill="#9bad93" opacity=".45" />
+        <circle cx="1" cy="1" r=".7" fill="#9bad93" opacity=".38" />
       </pattern>
+      <marker
+        id={`sketch-arrow-${kind}`}
+        viewBox="0 0 8 8"
+        refX="6.5"
+        refY="4"
+        markerWidth="5"
+        markerHeight="5"
+        orient="auto"
+      >
+        <path
+          d="m2 1 4 3-4 3"
+          fill="none"
+          stroke="#7b9478"
+          stroke-width="1.2"
+        />
+      </marker>
     </defs>
-    <rect width="400" height="260" fill={`url(#note-dots-${kind})`} />
-    <g stroke="#93a58c" stroke-width="1.3" fill="none">
-      <path d="M200 71v23m-4-5 4 5 4-5M200 166v23m-4-5 4 5 4-5" />
-      <path d="M300 46h37v168h-37" stroke-dasharray="4 5" />
-    </g>
-    {sketch.labels.map((label, i) => (
-      <g>
+    <rect width="480" height="280" fill={`url(#sketch-grid-${kind})`} />
+    {kind === "handover" && (
+      <>
+        <g fill="none" stroke="#8fa386" stroke-width="1.4">
+          <path d="M101 88C105 130 157 140 191 140M379 88c-4 42-56 52-90 52M240 187v33" />
+          <path
+            d="M100 165c15 68 86 96 140 96s125-28 140-96"
+            stroke-dasharray="4 5"
+            opacity=".65"
+          />
+        </g>
+        <g fill="#f7f7f0" stroke="#a8b69b">
+          <rect x="22" y="26" width="158" height="62" rx="5" />
+          <rect x="300" y="26" width="158" height="62" rx="5" />
+          <rect x="158" y="220" width="164" height="42" rx="5" />
+        </g>
+        <circle cx="240" cy="140" r="49" fill="#174d43" />
+        <circle
+          cx="240"
+          cy="140"
+          r="59"
+          fill="none"
+          stroke="#b1bea2"
+          stroke-dasharray="3 5"
+        />
+        <g
+          fill="#345b43"
+          font-family="'DM Sans',sans-serif"
+          text-anchor="middle"
+        >
+          <text x="101" y="51" font-size="15">
+            Context
+          </text>
+          <text x="101" y="71" font-size="10" fill="#718568">
+            Why this choice?
+          </text>
+          <text x="379" y="51" font-size="15">
+            Ownership
+          </text>
+          <text x="379" y="71" font-size="10" fill="#718568">
+            Who takes it on?
+          </text>
+          <text x="240" y="246" font-size="14">
+            The next change
+          </text>
+        </g>
+        <g stroke="#bdd0ae" fill="none" stroke-width="1.2">
+          <circle cx="232" cy="125" r="5" />
+          <circle cx="249" cy="125" r="5" />
+          <path d="M222 140q10-15 20 0m-2 0q10-15 20 0" />
+        </g>
+        <text
+          x="240"
+          y="162"
+          text-anchor="middle"
+          fill="#f7f7f0"
+          font-family="'DM Sans',sans-serif"
+          font-size="15"
+        >
+          The team
+        </text>
+        <g fill="#8fa276">
+          <circle cx="165" cy="133" r="3" />
+          <circle cx="315" cy="133" r="3" />
+          <circle cx="240" cy="204" r="3" />
+        </g>
+      </>
+    )}
+    {kind === "recovery" && (
+      <>
+        <g
+          font-family="'DM Sans',sans-serif"
+          text-anchor="middle"
+          fill="#345b43"
+          font-size="15"
+        >
+          <text x="111" y="48">
+            Operating cost
+          </text>
+          <text x="369" y="48">
+            Recovery needs
+          </text>
+        </g>
+        <g stroke="#809777" stroke-width="1.5" fill="none">
+          <path d="M81 88h318M240 88v139M191 228h98M111 88l-43 67m43-67 43 67M369 88l-43 67m43-67 43 67" />
+        </g>
+        <path d="m240 77-11 18h22z" fill="#174d43" />
+        <g fill="#e3e9d8" stroke="#8ca180" stroke-width="1.3">
+          <path d="M57 155h108q-12 46-54 46t-54-46Z" />
+          <path d="M315 155h108q-12 46-54 46t-54-46Z" />
+        </g>
+        <text
+          x="111"
+          y="184"
+          text-anchor="middle"
+          fill="#174d43"
+          font-family="'Instrument Serif',serif"
+          font-size="31"
+          font-style="italic"
+        >
+          £
+        </text>
+        <g fill="none" stroke="#174d43" stroke-width="1.4">
+          <circle cx="369" cy="177" r="14" />
+          <path d="M369 168v10l7 4" />
+        </g>
+        <g fill="#879b77">
+          <circle cx="111" cy="88" r="3.5" />
+          <circle cx="369" cy="88" r="3.5" />
+        </g>
+        <rect x="111" y="241" width="258" height="28" rx="3" fill="#174d43" />
+        <text
+          x="240"
+          y="259"
+          text-anchor="middle"
+          fill="#e6eddb"
+          font-family="'IBM Plex Mono',monospace"
+          font-size="10"
+          letter-spacing=".7"
+        >
+          TEST THE RECOVERY PATH
+        </text>
+      </>
+    )}
+    {kind === "tenancy" && (
+      <>
+        <g
+          fill="none"
+          stroke="#8fa386"
+          stroke-width="1.3"
+          marker-end={`url(#sketch-arrow-${kind})`}
+        >
+          <path d="M240 58v42M240 151v35H80v19M240 186v19M240 186h160v19" />
+        </g>
         <rect
-          x="75"
-          y={22 + i * 83}
-          width="225"
-          height="49"
+          x="143"
+          y="16"
+          width="194"
+          height="42"
           rx="4"
-          fill={i === 1 ? "#174d43" : "#f7f7f0"}
-          stroke={i === 1 ? "#174d43" : "#a2b397"}
+          fill="#f7f7f0"
+          stroke="#a8b69b"
+        />
+        <rect
+          x="116"
+          y="78"
+          width="248"
+          height="94"
+          rx="6"
+          fill="none"
+          stroke="#a8b69b"
+          stroke-dasharray="4 5"
         />
         <text
-          x="187.5"
-          y={51 + i * 83}
-          text-anchor="middle"
-          fill={i === 1 ? "#f7f7f0" : "#31583f"}
-          font-family="'DM Sans',sans-serif"
-          font-size="13"
+          x="131"
+          y="94"
+          fill="#708466"
+          font-family="'IBM Plex Mono',monospace"
+          font-size="8"
+          letter-spacing=".6"
         >
-          {label}
+          SHARED APPLICATION
         </text>
-      </g>
-    ))}
-    <g
-      fill="#65795b"
-      font-family="'IBM Plex Mono',monospace"
-      font-size="7.5"
-      letter-spacing=".6"
-    >
-      <text x="23" y="50">
-        01
-      </text>
-      <text x="23" y="133">
-        02
-      </text>
-      <text x="23" y="216">
-        03
-      </text>
-    </g>
+        <rect x="150" y="105" width="180" height="46" rx="4" fill="#174d43" />
+        <g
+          font-family="'DM Sans',sans-serif"
+          text-anchor="middle"
+          font-size="14"
+        >
+          <text x="240" y="42" fill="#345b43">
+            Verified tenant context
+          </text>
+          <text x="240" y="133" fill="#f7f7f0">
+            Authorise &amp; route
+          </text>
+        </g>
+        {[80, 240, 400].map((x, i) => (
+          <g>
+            <path
+              d={`M${x - 46} 216v33c0 14 92 14 92 0v-33`}
+              fill="#e4eadb"
+              stroke="#8fa386"
+              stroke-width="1.2"
+            />
+            <ellipse
+              cx={x}
+              cy="216"
+              rx="46"
+              ry="10"
+              fill="#f7f7f0"
+              stroke="#8fa386"
+              stroke-width="1.2"
+            />
+            <text
+              x={x}
+              y="244"
+              text-anchor="middle"
+              fill="#345b43"
+              font-family="'DM Sans',sans-serif"
+              font-size="13"
+            >
+              Tenant {["A", "B", "C"][i]}
+            </text>
+          </g>
+        ))}
+        <path
+          d="M160 205v62M320 205v62"
+          stroke="#c2ccb7"
+          stroke-dasharray="3 5"
+        />
+      </>
+    )}
   </svg>
   <figcaption>{sketch.caption}</figcaption>
 </figure>
