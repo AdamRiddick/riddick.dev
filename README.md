@@ -4,6 +4,10 @@ Personal CV and architecture portfolio for Adam Riddick, built with Astro, TypeS
 
 Source repository: [AdamRiddick/riddick.dev](https://github.com/AdamRiddick/riddick.dev). Hosting is not yet configured.
 
+## Brand and writing direction
+
+The established theme applies to all public-facing artifacts. See [the brand guide](docs/brand.md) and [the researched editorial proposal](docs/editorial-strategy.md). Writing preferences are recorded; the proposed article format and topics are not yet implemented. The reusable [Adam Riddick writing skill](skills/adam-riddick-writing/SKILL.md) includes a [versioned voice profile](skills/adam-riddick-writing/references/voice.md), an article workflow and a brief template. The voice will be refined through Adam's edits.
+
 ## Run locally
 
 Requires Node.js >=22.23.4, as declared by the locked Astro release. This first pass was verified with Node 26.10.0.

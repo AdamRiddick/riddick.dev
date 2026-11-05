@@ -1,0 +1,4 @@
+interface:
+  display_name: "Adam Riddick Writing"
+  short_description: "Draft and refine articles in Adam’s working voice"
+  default_prompt: "Use $adam-riddick-writing to draft or revise an article for riddick.dev in my working voice, using the supplied facts and my latest edits."
