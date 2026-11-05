@@ -1,0 +1,638 @@
+/* Field notes: a quiet editorial space within the existing identity. */
+.desktop-nav a[aria-current="page"],
+.mobile-menu a[aria-current="page"] {
+  color: #718448;
+}
+.writing-index {
+  padding-block: 52px 40px;
+}
+.writing-intro {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  align-items: end;
+  gap: 70px;
+  margin-bottom: 40px;
+}
+.writing-intro h1 {
+  font-size: clamp(42px, 4.4vw, 63px);
+  margin-bottom: 0;
+}
+.writing-intro h1 em {
+  white-space: normal;
+}
+.writing-intro-note {
+  padding-bottom: 4px;
+  max-width: 340px;
+}
+.writing-intro-note p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 13px;
+}
+.writing-intro-note p:first-child {
+  color: var(--ink);
+  font-size: 16px;
+}
+.draft-marker {
+  display: inline-flex;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: #68764e;
+  background: #e9eddf;
+  border: 1px solid #d7deca;
+  padding: 5px 8px;
+  line-height: 1.5;
+}
+.writing-filters {
+  border-block: 1px solid var(--line);
+  padding-block: 17px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  margin-bottom: 28px;
+}
+.writing-filters .eyebrow {
+  margin: 0 15px 0 0;
+  font-size: 8px;
+}
+.writing-filters button {
+  font-family: inherit;
+  cursor: pointer;
+  font-size: 11px;
+  color: var(--muted);
+  background: transparent;
+  padding: 6px 0;
+  border: 0;
+  border-bottom: 1px solid transparent;
+}
+.writing-filters button[aria-pressed="true"] {
+  color: var(--green);
+  border-bottom-color: var(--green);
+}
+.writing-filters button:hover {
+  color: var(--green);
+}
+.writing-filters button:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 5px;
+}
+.featured-note {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  align-items: center;
+  gap: 35px;
+  padding: 37px;
+  background: #e9ecdf;
+  border: 1px solid #dce1cf;
+  transition: border-color 0.2s;
+}
+.featured-note:hover {
+  border-color: #9aab85;
+}
+.featured-copy > .eyebrow {
+  font-size: 8px;
+  margin-bottom: 24px;
+}
+.note-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 15px;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  line-height: 1.8;
+  color: #6f7e61;
+}
+.featured-copy h2 {
+  font-size: 37px;
+  line-height: 1.17;
+  margin-block: 16px;
+  letter-spacing: -1.3px;
+}
+.featured-copy > p:not(.eyebrow) {
+  font-size: 13px;
+  line-height: 1.9;
+  max-width: 440px;
+  color: var(--muted);
+}
+.featured-read {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-size: 11px;
+  margin-top: 24px;
+}
+.writing-sketch {
+  padding: 20px;
+  margin: 0;
+  background: #f0f2e8;
+  border: 1px solid #d5ddc9;
+}
+.writing-sketch .diagram-meta {
+  font-size: 7px;
+  letter-spacing: 1px;
+}
+.writing-sketch svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.writing-sketch figcaption {
+  font-size: 10px;
+  text-align: center;
+  line-height: 1.6;
+  color: #5f7358;
+}
+.writing-sketch.compact {
+  background: transparent;
+  border: 0;
+  padding: 10px 0 10px 15px;
+}
+.notes-list {
+  margin-top: 10px;
+}
+.note-row {
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+  align-items: center;
+  gap: 25px;
+  padding-block: 30px;
+  border-bottom: 1px solid var(--line);
+}
+.note-index {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: #78856c;
+  align-self: start;
+  padding-top: 4px;
+}
+.note-row h2 {
+  font-size: 27px;
+  line-height: 1.3;
+  letter-spacing: -0.7px;
+  margin-block: 11px;
+}
+.note-row p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: 0;
+  max-width: 700px;
+}
+.note-row:hover .circle-arrow {
+  color: var(--paper);
+  background: var(--green);
+  border-color: var(--green);
+}
+[data-writing-topic][hidden] {
+  display: none;
+}
+.writing-results-note {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: #79836f;
+  margin-top: 17px;
+}
+.writing-endnote {
+  display: grid;
+  grid-template-columns: 0.7fr 1.7fr 1fr;
+  gap: 35px;
+  align-items: start;
+  padding-top: 28px;
+  margin-top: 44px;
+  border-top: 1px solid var(--line);
+}
+.writing-endnote .eyebrow {
+  font-size: 8px;
+  margin: 0;
+}
+.writing-endnote > p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.8;
+  margin: 0;
+}
+.writing-endnote .text-link {
+  font-size: 10px;
+  line-height: 1.7;
+}
+.writing-empty {
+  background: var(--soft);
+  border: 1px solid var(--line);
+  padding: 40px;
+  margin-top: 35px;
+}
+.writing-empty p:not(.eyebrow) {
+  max-width: 500px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.field-note {
+  padding-block: 30px 35px;
+}
+.note-back {
+  margin-bottom: 34px;
+}
+.field-note-header {
+  max-width: 940px;
+}
+.field-note-header h1 {
+  font-size: clamp(38px, 4.8vw, 62px);
+  line-height: 1.12;
+  letter-spacing: -2px;
+  margin-bottom: 22px;
+}
+.field-note-deck {
+  font-size: 18px;
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 760px;
+}
+.field-note-byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 13px 20px;
+  font-size: 10px;
+  color: #74806a;
+  padding-block: 20px 25px;
+  border-bottom: 1px solid var(--line);
+}
+.byline-avatar {
+  background: var(--green);
+  color: var(--paper);
+  width: 29px;
+  height: 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  letter-spacing: -1.5px;
+  border-radius: 50%;
+}
+.field-note-layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 720px);
+  gap: 65px;
+  padding-block: 37px;
+}
+.note-contents nav {
+  position: sticky;
+  top: calc(var(--header-height) + 30px);
+}
+.note-contents .eyebrow {
+  font-size: 8px;
+  margin-bottom: 19px;
+}
+.note-contents a {
+  display: block;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #74806a;
+  padding-block: 7px;
+}
+.note-contents a:hover {
+  color: var(--green);
+}
+.note-margin {
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  font-family: var(--serif);
+  font-style: italic;
+  color: #748265;
+  font-size: 23px;
+  line-height: 1.4;
+  margin-top: 25px;
+}
+.note-takeaway {
+  padding: 25px 28px;
+  background: var(--green);
+  color: #f1f4e9;
+  margin-bottom: 28px;
+}
+.note-takeaway .eyebrow {
+  color: #bdcda9;
+  font-size: 8px;
+  margin-bottom: 12px;
+}
+.note-takeaway > p:last-child {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+.field-note-content > .writing-sketch {
+  margin-bottom: 35px;
+}
+.field-note-content > .writing-sketch svg {
+  max-height: 265px;
+}
+.article-prose {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #53634f;
+}
+.article-prose h2 {
+  color: var(--ink);
+  font-size: 28px;
+  letter-spacing: -0.8px;
+  line-height: 1.3;
+  margin-block: 36px 16px;
+  scroll-margin-top: 0;
+}
+.article-prose h2:first-child {
+  margin-top: 0;
+}
+.article-prose p {
+  margin-bottom: 20px;
+}
+.article-prose a {
+  color: var(--green);
+  text-decoration: underline;
+  text-decoration-color: #a9b89b;
+  text-underline-offset: 4px;
+}
+.article-prose ul,
+.article-prose ol {
+  padding-left: 22px;
+  margin-block: 20px 26px;
+}
+.article-prose ul {
+  list-style: disc;
+}
+.article-prose ol {
+  list-style: decimal;
+}
+.article-prose li {
+  padding-left: 5px;
+  margin-bottom: 10px;
+}
+.article-prose strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.article-prose blockquote {
+  border-left: 2px solid #98ab7c;
+  padding-left: 22px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 25px;
+}
+.article-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  line-height: 1.7;
+  margin-block: 25px;
+}
+.article-prose th,
+.article-prose td {
+  padding: 12px 10px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+.article-prose th {
+  color: var(--ink);
+  background: #e9ecdf;
+  font-weight: 500;
+}
+.related-notes {
+  border-top: 1px solid var(--line);
+  padding-block: 25px 10px;
+}
+.related-notes > .eyebrow {
+  font-size: 8px;
+}
+.related-notes > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.related-notes a {
+  position: relative;
+  padding-right: 30px;
+}
+.related-notes h2 {
+  font-size: 23px;
+  line-height: 1.35;
+  letter-spacing: -0.5px;
+  margin-block: 12px;
+}
+.related-notes svg {
+  position: absolute;
+  right: 0;
+  top: 40px;
+}
+.note-conversation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  border-top: 1px solid var(--line);
+  padding-top: 25px;
+  margin-top: 25px;
+}
+.note-conversation .eyebrow {
+  font-size: 8px;
+  margin-bottom: 10px;
+}
+.note-conversation p:not(.eyebrow) {
+  font-size: 18px;
+  margin: 0;
+}
+@media (max-width: 1000px) {
+  .writing-intro {
+    gap: 35px;
+  }
+  .featured-copy h2 {
+    font-size: 30px;
+  }
+  .featured-note {
+    padding: 28px;
+    gap: 25px;
+  }
+  .field-note-layout {
+    grid-template-columns: 175px minmax(0, 1fr);
+    gap: 35px;
+  }
+  .writing-endnote {
+    grid-template-columns: 1fr 2fr;
+  }
+  .writing-endnote .text-link {
+    grid-column: 2;
+  }
+}
+@media (max-width: 800px) {
+  .writing-intro {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .writing-intro-note {
+    max-width: 560px;
+  }
+  .featured-note {
+    grid-template-columns: 1fr 1fr;
+  }
+  .featured-copy h2 {
+    font-size: 28px;
+  }
+  .field-note-layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .note-contents {
+    display: none;
+  }
+  .field-note-content {
+    max-width: 720px;
+  }
+  .field-note-header h1 {
+    font-size: 47px;
+  }
+  .writing-filters {
+    gap: 8px 20px;
+  }
+}
+@media (max-width: 580px) {
+  .writing-index {
+    padding-block: 32px 30px;
+  }
+  .writing-intro {
+    gap: 24px;
+    margin-bottom: 27px;
+  }
+  .writing-intro h1 {
+    font-size: 40px;
+    line-height: 1.1;
+  }
+  .writing-intro-note p:first-child {
+    font-size: 15px;
+  }
+  .writing-intro-note p {
+    font-size: 12px;
+  }
+  .writing-filters {
+    gap: 7px 18px;
+    padding-block: 13px;
+  }
+  .writing-filters .eyebrow {
+    display: none;
+  }
+  .writing-filters button {
+    font-size: 10px;
+  }
+  .featured-note {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 24px;
+  }
+  .featured-copy h2 {
+    font-size: 30px;
+  }
+  .featured-copy > .eyebrow {
+    margin-bottom: 18px;
+  }
+  .featured-copy > p:not(.eyebrow) {
+    font-size: 12px;
+  }
+  .featured-read {
+    margin-top: 20px;
+  }
+  .writing-sketch.compact {
+    max-width: 340px;
+    width: 100%;
+    padding: 15px 0 0;
+    margin: auto;
+  }
+  .note-row {
+    grid-template-columns: 24px 1fr 27px;
+    gap: 10px;
+    padding-block: 25px;
+  }
+  .note-row h2 {
+    font-size: 22px;
+  }
+  .note-row p {
+    font-size: 11px;
+  }
+  .note-row .circle-arrow {
+    width: 27px;
+    height: 27px;
+  }
+  .note-metadata {
+    font-size: 7px;
+    gap: 5px 11px;
+  }
+  .writing-endnote {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 23px;
+  }
+  .writing-endnote .text-link {
+    grid-column: auto;
+  }
+  .writing-empty {
+    padding: 25px;
+  }
+  .field-note {
+    padding-block: 26px 30px;
+  }
+  .note-back {
+    margin-bottom: 28px;
+  }
+  .field-note-header h1 {
+    font-size: 38px;
+    letter-spacing: -1.3px;
+  }
+  .field-note-deck {
+    font-size: 15px;
+  }
+  .field-note-byline {
+    font-size: 9px;
+    gap: 12px 14px;
+    padding-block: 14px 20px;
+  }
+  .field-note-layout {
+    padding-block: 27px;
+  }
+  .note-takeaway {
+    padding: 21px;
+  }
+  .note-takeaway > p:last-child {
+    font-size: 14px;
+  }
+  .writing-sketch {
+    padding: 17px;
+  }
+  .article-prose {
+    font-size: 15px;
+    line-height: 1.85;
+  }
+  .article-prose h2 {
+    font-size: 25px;
+  }
+  .article-prose table {
+    font-size: 11px;
+  }
+  .article-prose th,
+  .article-prose td {
+    padding: 10px 7px;
+  }
+  .related-notes > div {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .related-notes h2 {
+    font-size: 22px;
+  }
+  .note-conversation {
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .note-conversation p:not(.eyebrow) {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,89 @@
+---
+interface Props {
+  kind?: "handover" | "recovery" | "tenancy";
+  compact?: boolean;
+}
+const { kind = "handover", compact = false } = Astro.props;
+const sketches = {
+  handover: {
+    title: "A system the team can keep moving",
+    labels: ["Shared context", "Clear ownership", "Confident change"],
+    caption: "The decisions travel with the system.",
+  },
+  recovery: {
+    title: "Consider the whole cost of the decision",
+    labels: ["Operating cost", "Recovery needs", "A tested balance"],
+    caption: "Cost and recovery belong in the same conversation.",
+  },
+  tenancy: {
+    title: "Make the isolation boundary explicit",
+    labels: ["Tenant context", "Trusted routing", "Isolated data"],
+    caption: "A shared application can serve separate data stores.",
+  },
+};
+const sketch = sketches[kind];
+---
+
+<figure class:list={["writing-sketch", { compact }]}>
+  <div class="diagram-meta">
+    <span>NOTES IN THE MARGIN</span>
+    <span aria-hidden="true">FIG. 01</span>
+  </div>
+  <svg viewBox="0 0 400 260" role="img" aria-label={sketch.title}>
+    <defs>
+      <pattern
+        id={`note-dots-${kind}`}
+        width="16"
+        height="16"
+        patternUnits="userSpaceOnUse"
+      >
+        <circle cx="1" cy="1" r=".7" fill="#9bad93" opacity=".45" />
+      </pattern>
+    </defs>
+    <rect width="400" height="260" fill={`url(#note-dots-${kind})`} />
+    <g stroke="#93a58c" stroke-width="1.3" fill="none">
+      <path d="M200 71v23m-4-5 4 5 4-5M200 166v23m-4-5 4 5 4-5" />
+      <path d="M300 46h37v168h-37" stroke-dasharray="4 5" />
+    </g>
+    {sketch.labels.map((label, i) => (
+      <g>
+        <rect
+          x="75"
+          y={22 + i * 83}
+          width="225"
+          height="49"
+          rx="4"
+          fill={i === 1 ? "#174d43" : "#f7f7f0"}
+          stroke={i === 1 ? "#174d43" : "#a2b397"}
+        />
+        <text
+          x="187.5"
+          y={51 + i * 83}
+          text-anchor="middle"
+          fill={i === 1 ? "#f7f7f0" : "#31583f"}
+          font-family="'DM Sans',sans-serif"
+          font-size="13"
+        >
+          {label}
+        </text>
+      </g>
+    ))}
+    <g
+      fill="#65795b"
+      font-family="'IBM Plex Mono',monospace"
+      font-size="7.5"
+      letter-spacing=".6"
+    >
+      <text x="23" y="50">
+        01
+      </text>
+      <text x="23" y="133">
+        02
+      </text>
+      <text x="23" y="216">
+        03
+      </text>
+    </g>
+  </svg>
+  <figcaption>{sketch.caption}</figcaption>
+</figure>

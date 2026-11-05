@@ -2,7 +2,7 @@
 
 Research date: 5 November 2026.
 
-Status: proposal for discussion. The writing section and articles are not implemented or published. Confirmed brand and user preferences are recorded separately in [brand.md](brand.md).
+Status: editorial direction with a local implementation draft. The Writing index and article template are implemented, with three unpublished general-analysis essays available only in development. They are not approved voice references or historical publications. Confirmed brand and user preferences are recorded separately in [brand.md](brand.md).
 
 ## Recommendation
 
@@ -156,4 +156,4 @@ Before a piece becomes public:
 
 ## Next step
 
-Choose one flagship topic, gather its factual basis and write a representative article before implementing the final index and article templates. That gives the design a real piece to serve and tests whether the proposed format feels readable rather than bureaucratic.
+Review the local `/writing/` page and the handover essay first. Use Adam's actual edits to refine the layout, argument and voice profile. Gather project-specific evidence only where an article is deliberately being developed into a personal case study. The implementation does not expose drafts in production builds.

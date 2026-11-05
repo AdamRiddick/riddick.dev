@@ -910,7 +910,7 @@ h2 em {
     font-size: 20px;
   }
 }
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .desktop-nav {
     display: none;
   }
