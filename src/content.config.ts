@@ -34,7 +34,14 @@ const writing = defineCollection({
         .optional(),
       experiencePeriod: z.string().optional(),
       order: z.number().default(0),
-      sketch: z.enum(["handover", "recovery", "tenancy", "completion", "feedback"]),
+      sketch: z.enum([
+        "handover",
+        "recovery",
+        "tenancy",
+        "completion",
+        "feedback",
+        "provider",
+      ]),
     })
     .superRefine((article, context) => {
       if (!article.draft && !article.publicationMonth) {
