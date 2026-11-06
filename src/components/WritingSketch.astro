@@ -1,10 +1,16 @@
 ---
 interface Props {
-  kind?: "handover" | "recovery" | "tenancy";
+  kind?: "handover" | "recovery" | "tenancy" | "completion";
   compact?: boolean;
 }
 const { kind = "handover", compact = false } = Astro.props;
 const sketches = {
+  completion: {
+    title: "Evidence that helps close a deployed change",
+    description:
+      "Four parallel review lines connect outcome, operation, recovery and remaining work to the evidence needed to close a change. This is a conceptual review aid, not a measured readiness score or a required sequence.",
+    caption: "A release milestone, followed by evidence to close the change.",
+  },
   handover: {
     title: "Context and responsibility shared around the team",
     description:
@@ -66,6 +72,68 @@ const sketch = sketches[kind];
       </marker>
     </defs>
     <rect width="480" height="280" fill={`url(#sketch-grid-${kind})`} />
+    {kind === "completion" && (
+      <>
+        <path d="M30 49h420" stroke="#b1bea2" />
+        <g
+          font-family="'IBM Plex Mono',monospace"
+          font-size="10"
+          letter-spacing=".6"
+          fill="#65795b"
+        >
+          <text x="30" y="32">
+            DEPLOYED
+          </text>
+          <text x="450" y="32" text-anchor="end">
+            EVIDENCE TO CLOSE
+          </text>
+        </g>
+        {[
+          ["Outcome", "Works in use"],
+          ["Operation", "Team can respond"],
+          ["Recovery", "Options checked"],
+          ["Remaining work", "Accounted for"],
+        ].map(([label, evidence], i) => {
+          const y = 86 + i * 51;
+          return (
+            <g>
+              <path
+                d={`M32 ${y + 16}h416`}
+                stroke="#c2ccb7"
+                stroke-dasharray="3 5"
+              />
+              <circle cx="35" cy={y - 2} r="3" fill="#8fa386" />
+              <text
+                x="50"
+                y={y + 3}
+                font-family="'DM Sans',sans-serif"
+                font-size="15"
+                fill="#345b43"
+              >
+                {label}
+              </text>
+              <text
+                x="425"
+                y={y + 3}
+                text-anchor="end"
+                font-family="'DM Sans',sans-serif"
+                font-size="14"
+                fill="#345b43"
+              >
+                {evidence}
+              </text>
+              <circle cx="447" cy={y - 2} r="10" fill="#174d43" />
+              <path
+                d={`m442 ${y - 2} 3 3 6-6`}
+                fill="none"
+                stroke="#f7f7f0"
+                stroke-width="1.4"
+              />
+            </g>
+          );
+        })}
+      </>
+    )}
     {kind === "handover" && (
       <>
         <g fill="none" stroke="#8fa386" stroke-width="1.4">

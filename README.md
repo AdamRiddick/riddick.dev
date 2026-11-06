@@ -49,6 +49,8 @@ To regenerate the public CV, install Python's `reportlab` package and run `pytho
 
 ## Writing locally
 
+The [Writing backlog](docs/writing-backlog.md) retains agreed future subjects. The next article, **The work between ‘deployed’ and ‘done’**, is available locally at `/writing/the-work-between-deployed-and-done/` and remains excluded from production until approved for publication.
+
 Run `npm run dev`, then open `/writing/`. The three initial essays are published with November 2026 month labels. Development mode also includes any future unpublished articles, without workflow labels or implied publication dates. These pieces are general analyses, not claims about unverified personal incidents or historical publications. They are not yet approved voice references.
 
 Articles are Markdown files in `src/content/writing/`. Frontmatter includes `title`, `summary`, `topic`, `takeaway`, `draft`, `order` and a `sketch` variant. Draft defaults to true. To publish an article, explicitly set `draft: false` and a quoted `publicationMonth: "YYYY-MM"` after the content is ready. Schema validation rejects a published article without a month. An optional `experiencePeriod` is displayed separately for a genuine retrospective.

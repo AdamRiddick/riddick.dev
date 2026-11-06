@@ -99,20 +99,12 @@ summary:focus-visible {
   gap: 32px;
   font-size: 13px;
 }
-.desktop-nav a {
+.desktop-nav a:not(.button) {
   transition: color 0.2s;
 }
-.desktop-nav a:hover,
+.desktop-nav a:not(.button):hover,
 .text-link:hover {
   color: #718448;
-}
-.nav-contact {
-  display: flex;
-  align-items: center;
-  gap: 17px;
-  border-left: 1px solid var(--line);
-  padding-left: 30px;
-  font-weight: 600;
 }
 .mobile-menu {
   display: none;
@@ -797,9 +789,6 @@ h2 em {
   .desktop-nav {
     gap: 20px;
   }
-  .nav-contact {
-    padding-left: 20px;
-  }
   .hero {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -1379,19 +1368,18 @@ h2 em {
   gap: 26px;
 }
 .desktop-nav .nav-contact {
-  border: 0;
-  padding-left: 0;
+  padding: 8px 14px;
 }
 .nav-writing {
-  display: flex;
-  align-items: center;
-  gap: 12px;
   border-left: 1px solid var(--line);
   padding-left: 26px;
-  font-weight: 500;
 }
 .mobile-menu .nav-pages {
   border-top: 1px solid var(--line);
   margin-top: 8px;
   padding-top: 8px;
+}
+.mobile-menu .nav-contact {
+  margin-block: 6px;
+  text-align: center;
 }
