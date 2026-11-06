@@ -6,7 +6,6 @@ import "@fontsource/dm-sans/600.css";
 import "@fontsource/dm-sans/700.css";
 import "@fontsource/instrument-serif/400-italic.css";
 import "@fontsource/ibm-plex-mono/400.css";
-import Arrow from "../components/Arrow.astro";
 interface Props {
   title?: string;
   description?: string;
@@ -55,9 +54,6 @@ const section = (id: string) => (home ? `#${id}` : `/#${id}`);
             <a href={section("expertise")}>Services</a>
             <a href={section("experience")}>Experience</a>
             <a href={section("about")}>About</a>
-            <a class="nav-contact" href={section("contact")}>
-              Let’s talk
-            </a>
           </div>
           <a
             class="nav-writing"
@@ -70,7 +66,10 @@ const section = (id: string) => (home ? `#${id}` : `/#${id}`);
                   : undefined
             }
           >
-            Writing <Arrow diagonal />
+            Writing
+          </a>
+          <a class="button nav-contact" href={section("contact")}>
+            Let’s talk
           </a>
         </nav>
         <details class="mobile-menu">
@@ -83,7 +82,6 @@ const section = (id: string) => (home ? `#${id}` : `/#${id}`);
               <a href={section("expertise")}>Services</a>
               <a href={section("experience")}>Experience</a>
               <a href={section("about")}>About</a>
-              <a href={section("contact")}>Let’s talk ↗</a>
             </div>
             <div class="nav-pages">
               <a
@@ -96,8 +94,9 @@ const section = (id: string) => (home ? `#${id}` : `/#${id}`);
                       : undefined
                 }
               >
-                Writing ↗
+                Writing
               </a>
+              <a class="button nav-contact" href={section("contact")}>Let’s talk</a>
               <a href="/adam-riddick-cv.pdf" download>
                 Download CV ↓
               </a>
