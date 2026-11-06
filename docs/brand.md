@@ -30,7 +30,7 @@ The design should feel personal, precise and calm. Original project diagrams and
 - Be specific about Adam's responsibility and credit the teams delivering the work.
 - Take ownership of what matters, see work through, and leave teams able to operate and evolve their systems.
 - Keep a measured tone. Avoid self-congratulation, heroic narratives and universal prescriptions.
-- Use `riddick.dev` as the intended primary domain and `adam@riddick.dev` as the contact address. Domain/email service configuration is separate from content.
+- Use `adam.riddick.dev` as the portfolio domain and `adam@riddick.dev` as the contact address.
 
 For articles, use the [working voice profile](../skills/adam-riddick-writing/references/voice.md) and [writing workflow](../skills/adam-riddick-writing/references/workflow.md). This profile is versioned and develops through Adam's edits; the current site copy is not independent evidence of his natural prose.
 
