@@ -3,7 +3,8 @@ title: "The work between ‘deployed’ and ‘done’"
 summary: "A successful deployment is an important milestone. Closing the change takes evidence that it works in practice and that the remaining responsibilities are clear."
 topic: "Technical leadership"
 takeaway: "Agree what completion needs to mean before release. Verify the outcome in use, make the operating responsibilities workable, and give anything left open an owner and a next decision."
-draft: true
+draft: false
+publicationMonth: "2026-10"
 order: 4
 sketch: "completion"
 ---

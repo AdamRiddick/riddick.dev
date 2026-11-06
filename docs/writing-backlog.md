@@ -4,7 +4,7 @@ Updated 5 November 2026. Adam endorsed the seven subjects below as worth retaini
 
 ## In progress
 
-**The work between ‘deployed’ and ‘done’** — [local article](../src/content/writing/the-work-between-deployed-and-done.md), unpublished and available in development.
+**The work between ‘deployed’ and ‘done’** — [published article source](../src/content/writing/the-work-between-deployed-and-done.md), dated October 2026.
 
 - Reader: an engineering lead or architect deciding when a change can be closed.
 - Argument: define proportionate completion evidence before release; verify the useful outcome, operational response and recovery assumptions, and account for remaining work.
