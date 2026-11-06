@@ -104,7 +104,7 @@ Use the existing theme as defined in [brand.md](brand.md).
 
 ## Candidate articles
 
-See the [saved Writing backlog](writing-backlog.md) for the seven additional subjects endorsed by Adam and the selected article, **The work between ‘deployed’ and ‘done’**, approved for publication with an October 2026 label.
+See the [saved Writing backlog](writing-backlog.md) for the retained subjects and the articles developed from them.
 
 These are working titles and research angles, not claims about Adam's historical decisions or completed drafts.
 

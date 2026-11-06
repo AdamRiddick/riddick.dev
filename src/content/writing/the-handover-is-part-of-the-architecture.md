@@ -4,7 +4,7 @@ summary: "A system needs to remain understandable, operable and changeable after
 topic: "Technical leadership"
 takeaway: "Treat the team’s ability to own the system as part of the design. Share the reasoning, make responsibilities clear and test whether someone else can take the next decision."
 draft: false
-publicationMonth: "2026-11"
+publicationMonth: "2026-09"
 order: 1
 sketch: "handover"
 ---

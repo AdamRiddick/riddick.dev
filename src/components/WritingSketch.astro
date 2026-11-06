@@ -1,10 +1,16 @@
 ---
 interface Props {
-  kind?: "handover" | "recovery" | "tenancy" | "completion";
+  kind?: "handover" | "recovery" | "tenancy" | "completion" | "feedback";
   compact?: boolean;
 }
 const { kind = "handover", compact = false } = Astro.props;
 const sketches = {
+  feedback: {
+    title: "When client feedback can change the plan",
+    description:
+      "Two conceptual timelines show a first working slice. An early review happens at that point and can change the next work. A late review happens after more work builds on the original assumption.",
+    caption: "The same first working slice can support very different review dates.",
+  },
   completion: {
     title: "Evidence that helps close a deployed change",
     description:
@@ -72,6 +78,48 @@ const sketch = sketches[kind];
       </marker>
     </defs>
     <rect width="480" height="280" fill={`url(#sketch-grid-${kind})`} />
+    {kind === "feedback" && (
+      <>
+        <path d="M156 52v171" stroke="#8fa386" stroke-dasharray="4 5" />
+        <text
+          x="156"
+          y="39"
+          text-anchor="middle"
+          font-family="'DM Sans',sans-serif"
+          font-size="16"
+          fill="#345b43"
+        >
+          First working slice
+        </text>
+        <g font-family="'DM Sans',sans-serif" font-size="16" fill="#345b43">
+          <text x="32" y="80">Review early</text>
+          <text x="32" y="174">Review late</text>
+          <text x="176" y="125">Adjust the next work</text>
+          <text x="176" y="219">Build on the same assumption</text>
+        </g>
+        <path d="M32 99h124M32 193h124" stroke="#174d43" stroke-width="3" />
+        <path
+          d="M156 99h291"
+          stroke="#8fa386"
+          stroke-width="2"
+          stroke-dasharray="6 5"
+        />
+        <path d="M156 193h291" stroke="#174d43" stroke-width="3" />
+        <circle cx="156" cy="99" r="7" fill="#174d43" />
+        <circle cx="447" cy="193" r="7" fill="#174d43" />
+        <text
+          x="447"
+          y="250"
+          text-anchor="end"
+          font-family="'DM Sans',sans-serif"
+          font-size="16"
+          fill="#345b43"
+        >
+          Client review
+        </text>
+        <path d="M447 205v25" stroke="#8fa386" />
+      </>
+    )}
     {kind === "completion" && (
       <>
         <path d="M30 49h420" stroke="#b1bea2" />
