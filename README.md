@@ -2,7 +2,7 @@
 
 Personal CV and architecture portfolio for Adam Riddick, built with Astro, TypeScript and Tailwind CSS.
 
-Source repository: [AdamRiddick/riddick.dev](https://github.com/AdamRiddick/riddick.dev). Hosting is not yet configured.
+Live site: [adam.riddick.dev](https://adam.riddick.dev/). Source repository: [AdamRiddick/riddick.dev](https://github.com/AdamRiddick/riddick.dev).
 
 ## Brand and writing direction
 
@@ -69,17 +69,17 @@ Approved public figures: 13+ years' experience, 2 million+ monthly users of the 
 
 The cloud and recovery case study explicitly combines separate initiatives across the architecture and engineering leadership roles. Case studies describe team delivery with Adam's architectural or management responsibility, not sole implementation.
 
-Before a public launch, review the wording, confirm engagement preferences and availability, and add the final domain for canonical URLs, sitemap and social sharing imagery. A portrait can be added when a suitable photo is supplied; the current identity artwork does not depict a person.
+A portrait can be added when a suitable photo is supplied. The current identity artwork does not depict a person.
 
 The 4 November revision tightens page spacing, expands the conceptual architecture illustration and presents the case studies around shared delivery, Adam's contribution and continuity of team ownership. FinOps describes the cost optimisation work already documented in the CV. The site and public CV now use `adam@riddick.dev`; mailbox setup is managed separately.
 
-## Cloudflare Pages (when ready)
+## Cloudflare Pages
 
-Connect this GitHub repository to Cloudflare Pages:
+Cloudflare Pages deploys the GitHub repository to `adam.riddick.dev`:
 
 - Production branch: `main`
 - Build command: `npm run build`
 - Output directory: `dist`
 - Pin a Cloudflare-supported Node version compatible with the committed Astro release.
 
-Use Cloudflare's Git integration for preview deployments. No Cloudflare adapter is needed for this static build. `public/_headers` contains basic response headers. Domain-specific SEO and deployment configuration should be completed once the public domain is confirmed.
+The Astro `site` setting drives canonical URLs and the generated sitemap. The shared social preview is `public/portfolio-preview.png`. Cloudflare's Git integration provides preview deployments. No Cloudflare adapter is needed for this static build. `public/_headers` contains basic response headers.

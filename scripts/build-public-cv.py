@@ -134,6 +134,10 @@ def contact(top):
     c.setFillColor(MUTED)
     c.drawRightString(W-M,top-17,'linkedin.com/in/adam-riddick')
     c.linkURL('https://www.linkedin.com/in/adam-riddick/',(W-M-127,top-20,W-M,top-8),relative=0,thickness=0)
+    website = 'adam.riddick.dev'
+    c.drawRightString(W-M,top-32,website)
+    width = pdfmetrics.stringWidth(website,'DM',7.3)
+    c.linkURL(f'https://{website}/',(W-M-width,top-35,W-M,top-24),relative=0,thickness=0)
 
 
 header(1)
