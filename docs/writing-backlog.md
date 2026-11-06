@@ -2,9 +2,14 @@
 
 Updated 5 November 2026. Adam endorsed the seven subjects below as worth retaining and selected **The work between ‘deployed’ and ‘done’** to develop next. Topic approval is not publication approval or evidence of a personal incident.
 
-## In progress
+## Published
 
-**The work between ‘deployed’ and ‘done’** — [published article source](../src/content/writing/the-work-between-deployed-and-done.md), dated October 2026.
+**The cost of late feedback** — [article source](../src/content/writing/the-cost-of-late-feedback.md), dated October 2026.
+
+- Reader: a delivery lead deciding when a client should first see enough work to judge the outcome.
+- Treatment: anonymised project experience, with an illustrative estimate for team capacity and project overhead. Keep recovery effort and delayed value separate from the cost of the work already underway.
+
+**The work between ‘deployed’ and ‘done’** — [article source](../src/content/writing/the-work-between-deployed-and-done.md), dated April 2026.
 
 - Reader: an engineering lead or architect deciding when a change can be closed.
 - Argument: define proportionate completion evidence before release; verify the useful outcome, operational response and recovery assumptions, and account for remaining work.
@@ -12,7 +17,7 @@ Updated 5 November 2026. Adam endorsed the seven subjects below as worth retaini
 - Distinction from the handover article: this piece concerns closing a particular change; handover concerns the team's continuing ability to understand and evolve the system.
 - Useful aid: four-line completion illustration and an example evidence table.
 - Sources checked: Google SRE's [Reliable Product Launches](https://sre.google/sre-book/reliable-product-launches/) and [Canarying Releases](https://sre.google/workbook/canarying-releases/).
-- Publication month: unset until approved. No historical experience period is claimed.
+- No historical experience period is claimed.
 - Voice: working profile v0.2; this generated article is not a designated voice reference.
 
 ## Retained subjects

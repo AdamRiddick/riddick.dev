@@ -4,7 +4,7 @@ summary: "A successful deployment is an important milestone. Closing the change 
 topic: "Technical leadership"
 takeaway: "Agree what completion needs to mean before release. Verify the outcome in use, make the operating responsibilities workable, and give anything left open an owner and a next decision."
 draft: false
-publicationMonth: "2026-10"
+publicationMonth: "2026-04"
 order: 4
 sketch: "completion"
 ---

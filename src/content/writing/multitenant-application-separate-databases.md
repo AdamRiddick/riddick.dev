@@ -4,7 +4,7 @@ summary: "A shared application and separate tenant databases can coexist. The im
 topic: "Architecture"
 takeaway: "Choose the application and data boundaries deliberately. Make tenant context, routing and operational responsibility clear across every path, including background work and reporting."
 draft: false
-publicationMonth: "2026-11"
+publicationMonth: "2026-06"
 order: 3
 sketch: "tenancy"
 ---

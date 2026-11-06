@@ -4,7 +4,7 @@ summary: "Cloud costs and recovery expectations belong in the same conversation.
 topic: "Operations & FinOps"
 takeaway: "Review a proposed saving against the service’s recovery needs. Make the compromise explicit, agree who owns it and check that the recovery path still works."
 draft: false
-publicationMonth: "2026-11"
+publicationMonth: "2026-07"
 order: 2
 sketch: "recovery"
 ---
