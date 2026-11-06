@@ -12,7 +12,11 @@ import {
 const articles = visibleArticles(
   await getCollection("writing"),
   import.meta.env.DEV,
-).sort((a, b) => a.data.order - b.data.order);
+).sort((a, b) => {
+  const monthA = a.data.draft ? "" : (a.data.publicationMonth ?? "");
+  const monthB = b.data.draft ? "" : (b.data.publicationMonth ?? "");
+  return monthB.localeCompare(monthA) || a.data.order - b.data.order;
+});
 const [featured, ...remaining] = articles;
 const topics = [
   "All articles",
