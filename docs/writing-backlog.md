@@ -4,6 +4,11 @@ Updated 5 November 2026. Adam endorsed the seven subjects below as worth retaini
 
 ## Published
 
+**What the provider demo didn’t tell us** — [article source](../src/content/writing/what-the-provider-demo-didnt-tell-us.md), dated November 2026.
+
+- Angle: involve engineering in provider due diligence and demonstrate a required workflow under the proposed terms before estimating delivery.
+- Treatment: anonymised retrospective. Keep unplanned engineering effort separate from forecast income tied to missed sales windows.
+
 **The cost of late feedback** — [article source](../src/content/writing/the-cost-of-late-feedback.md), dated October 2026.
 
 - Reader: a delivery lead deciding when a client should first see enough work to judge the outcome.
@@ -31,6 +36,8 @@ Updated 5 November 2026. Adam endorsed the seven subjects below as worth retaini
 | The cloud bill went up. Was that a bad thing?         | Distinguish growth, waste and intentional investment; examine cost per useful outcome.                      | An illustrative unit-cost comparison with explicit assumptions.     |
 | What an architecture diagram needs to tell you        | Choose views for the decision: dependencies, trust boundaries, failure paths and ownership.                 | Several original views of one illustrative system.                  |
 | A technical standard needs a way to make exceptions   | Agree defaults, handle legitimate differences and learn when exceptions should change the standard.         | An exception decision example with review conditions.               |
+| What embedded reporting costs to run                 | Compare how reporting platforms handle peak and off-peak demand, and account for capacity, tuning and support. | A workload comparison at the same performance target, including engineering time. |
+| From engineering-led to product-led to customer-led  | Trace how the starting question evolves from what can we build, to what should we prioritise, to what outcome do customers need and how will we know we delivered it? Show how engineering judgement and product prioritisation still shape the answer. | Follow one decision through all three approaches and compare the evidence each would use. |
 
 The previous suggested priorities were the modernisation, unfamiliar-platform and shared-component pieces. Adam's selection above takes precedence. No publishing dates or fixed sequence are assigned to the retained subjects.
 
