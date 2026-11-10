@@ -1,0 +1,503 @@
+---
+interface Props {
+  article?: boolean;
+}
+const { article = false } = Astro.props;
+---
+
+<section
+  class="tenant-explorer"
+  data-tenant-explorer
+  data-tenant="a"
+  aria-labelledby="tenant-explorer-title"
+>
+  <div class="tenant-explorer-heading">
+    <p class="trace-label">A system, explained</p>
+    <h2 id="tenant-explorer-title">
+      One application.
+      <br />
+      <em>Separate data.</em>
+    </h2>
+    <p>Follow a request across the tenant boundary.</p>
+  </div>
+
+  <div
+    class="trace-controls"
+    role="group"
+    aria-label="Choose an example request"
+    hidden
+  >
+    <button type="button" data-tenant-choice="a" aria-pressed="true">
+      Tenant A
+    </button>
+    <button type="button" data-tenant-choice="b" aria-pressed="false">
+      Tenant B
+    </button>
+    <button type="button" data-tenant-choice="missing" aria-pressed="false">
+      Missing context
+    </button>
+  </div>
+
+  <svg
+    class="tenant-map"
+    viewBox="0 0 620 400"
+    role="img"
+    aria-labelledby="tenant-map-title tenant-map-description"
+  >
+    <title id="tenant-map-title">A request routed to its tenant’s database</title>
+    <desc id="tenant-map-description">
+      A conceptual shared application verifies tenant context and access before
+      selecting a tenant database. A request with missing context stops before
+      reaching either database.
+    </desc>
+    <defs>
+      <pattern
+        id="tenant-map-dots"
+        width="24"
+        height="24"
+        patternUnits="userSpaceOnUse"
+      >
+        <circle cx="1" cy="1" r="0.8" fill="#a8bca1" opacity="0.23" />
+      </pattern>
+      <linearGradient id="tenant-app-fill" x1="0" y1="0" x2="0" y2="1">
+        <stop stop-color="#356b5e" />
+        <stop offset="1" stop-color="#174d43" />
+      </linearGradient>
+    </defs>
+    <rect width="620" height="400" fill="url(#tenant-map-dots)" />
+    <path class="trace-wire trace-wire-in" d="M310 61v38" />
+    <g class="trace-request">
+      <rect x="206" y="16" width="208" height="46" rx="23" />
+      <text x="310" y="46" text-anchor="middle" data-request-label>
+        Request · Tenant A
+      </text>
+    </g>
+    <g class="trace-app">
+      <path
+        d="m113 119 197-32 197 32-197 32z"
+        fill="#3b6a59"
+        stroke="#7e9c80"
+      />
+      <path
+        d="M113 119v72l197 32 197-32v-72l-197 32z"
+        fill="url(#tenant-app-fill)"
+        stroke="#7e9c80"
+      />
+      <text x="310" y="180" text-anchor="middle">
+        Shared application
+      </text>
+    </g>
+    <path class="trace-wire trace-wire-in" d="M310 223v25" />
+    <g class="trace-gate">
+      <rect x="173" y="245" width="274" height="44" rx="4" />
+      <circle cx="193" cy="267" r="4" />
+      <text x="316" y="274" text-anchor="middle" data-gate-label>
+        Context &amp; access checked
+      </text>
+    </g>
+    <path class="trace-wire trace-route trace-route-a" d="M310 289v24H134v21" />
+    <path class="trace-wire trace-route trace-route-b" d="M310 289v24h176v21" />
+    <g class="trace-database trace-database-a">
+      <path d="M57 346v27c0 21 154 21 154 0v-27" />
+      <ellipse cx="134" cy="346" rx="77" ry="18" />
+      <text x="134" y="378" text-anchor="middle">
+        Database A
+      </text>
+    </g>
+    <g class="trace-database trace-database-b">
+      <path d="M409 346v27c0 21 154 21 154 0v-27" />
+      <ellipse cx="486" cy="346" rx="77" ry="18" />
+      <text x="486" y="378" text-anchor="middle">
+        Database B
+      </text>
+    </g>
+  </svg>
+
+  <div class="trace-mobile" role="group" aria-label="Request routing diagram">
+    <p class="trace-mobile-request" data-request-label>
+      Request · Tenant A
+    </p>
+    <p class="trace-mobile-app">Shared application</p>
+    <p class="trace-mobile-gate" data-gate-label>
+      Context &amp; access checked
+    </p>
+    <div class="trace-mobile-databases">
+      <span class="trace-mobile-a">Database A</span>
+      <span class="trace-mobile-b">Database B</span>
+    </div>
+  </div>
+
+  <div class="trace-result" aria-live="polite" aria-atomic="true">
+    <span class="trace-result-symbol" aria-hidden="true" data-result-symbol>
+      ↳
+    </span>
+    <p data-trace-result>
+      Tenant A’s access is verified. The request reaches Database A. Database B
+      is untouched.
+    </p>
+  </div>
+  <div class="trace-footer">
+    <span>Conceptual model · server-verified context</span>
+    <a
+      href={
+        article
+          ? "#follow-the-request-beyond-the-front-door"
+          : "/writing/multitenant-application-separate-databases/"
+      }
+    >
+      {article ? "Follow the request" : "Explore the decision"}{" "}
+      <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+</section>
+
+<script>
+  const explorer = document.querySelector<HTMLElement>(
+    "[data-tenant-explorer]",
+  );
+  if (explorer) {
+    const choices = explorer.querySelectorAll<HTMLButtonElement>(
+      "[data-tenant-choice]",
+    );
+    const requestLabels = explorer.querySelectorAll("[data-request-label]");
+    const gateLabels = explorer.querySelectorAll("[data-gate-label]");
+    const result = explorer.querySelector("[data-trace-result]");
+    const symbol = explorer.querySelector("[data-result-symbol]");
+    const states = {
+      a: {
+        request: "Request · Tenant A",
+        gate: "Context & access checked",
+        result:
+          "Tenant A’s access is verified. The request reaches Database A. Database B is untouched.",
+        symbol: "↳",
+      },
+      b: {
+        request: "Request · Tenant B",
+        gate: "Context & access checked",
+        result:
+          "Tenant B’s access is verified. The request reaches Database B. Database A is untouched.",
+        symbol: "↳",
+      },
+      missing: {
+        request: "Request · No tenant",
+        gate: "Missing context · stop here",
+        result:
+          "Tenant context is missing. The application rejects the request before selecting a database.",
+        symbol: "×",
+      },
+    };
+    const controls = explorer.querySelector<HTMLElement>(".trace-controls");
+    if (controls) controls.hidden = false;
+    choices.forEach((button) => {
+      button.addEventListener("click", () => {
+        const tenant = button.dataset.tenantChoice as keyof typeof states;
+        const state = states[tenant];
+        explorer.dataset.tenant = tenant;
+        choices.forEach((choice) =>
+          choice.setAttribute("aria-pressed", String(choice === button)),
+        );
+        requestLabels.forEach((label) => (label.textContent = state.request));
+        gateLabels.forEach((label) => (label.textContent = state.gate));
+        if (result) result.textContent = state.result;
+        if (symbol) symbol.textContent = state.symbol;
+      });
+    });
+  }
+</script>
+
+<style>
+  .tenant-explorer {
+    --trace-bright: #dcebbd;
+    --trace-dim: #759184;
+    color: #f7f7f0;
+    background: #174d43;
+    padding: 30px 32px 0;
+    position: relative;
+    isolation: isolate;
+  }
+  .tenant-explorer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(ellipse at 65% 40%, #356b5e 0, transparent 65%);
+    pointer-events: none;
+  }
+  .trace-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.6px;
+    color: #d2ddca;
+    margin: 0 0 18px;
+  }
+  .tenant-explorer-heading h2 {
+    font-size: clamp(28px, 3.2vw, 43px);
+    line-height: 1.06;
+    letter-spacing: -1.3px;
+    margin: 0 0 15px;
+    font-weight: 500;
+  }
+  .tenant-explorer-heading h2 em {
+    font-size: 1.2em;
+    letter-spacing: -0.5px;
+    color: #dcebbd;
+  }
+  .tenant-explorer-heading > p:last-child {
+    font-size: 14px;
+    color: #d2ddca;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .trace-controls {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 22px;
+  }
+  .trace-controls[hidden] {
+    display: none;
+  }
+  .trace-controls button {
+    font: inherit;
+    font-size: 12px;
+    color: #f7f7f0;
+    border: 1px solid #739383;
+    padding: 10px 13px;
+    background: transparent;
+    cursor: pointer;
+    transition:
+      background 180ms ease,
+      color 180ms ease;
+  }
+  .trace-controls button[aria-pressed="true"] {
+    background: #dcebbd;
+    color: #174d43;
+    border-color: #dcebbd;
+  }
+  .trace-controls button:hover {
+    border-color: #dcebbd;
+  }
+  .trace-controls button:focus-visible,
+  .trace-footer a:focus-visible {
+    outline: 2px solid #f7f7f0;
+    outline-offset: 4px;
+  }
+  .tenant-map {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible;
+    margin-block: 12px 16px;
+  }
+  .tenant-map text {
+    font-family: "DM Sans", sans-serif;
+    font-size: 20px;
+    fill: #f7f7f0;
+  }
+  .tenant-map .trace-app text {
+    font-size: 22px;
+  }
+  .trace-wire {
+    fill: none;
+    stroke: var(--trace-dim);
+    stroke-width: 2;
+    stroke-linejoin: round;
+  }
+  .trace-wire-in {
+    stroke: var(--trace-bright);
+  }
+  .trace-request rect {
+    fill: #244f45;
+    stroke: #91ad8d;
+  }
+  .trace-gate rect {
+    fill: #174d43;
+    stroke: #b1c3a1;
+  }
+  .trace-gate circle {
+    fill: var(--trace-bright);
+  }
+  .trace-gate text {
+    font-size: 18px;
+  }
+  .trace-database {
+    fill: #28574a;
+    stroke: #759184;
+    opacity: 0.55;
+    transition:
+      opacity 220ms ease,
+      fill 220ms ease;
+  }
+  .trace-database ellipse {
+    fill: #3c6c58;
+  }
+  .trace-database text {
+    stroke: none;
+  }
+  .trace-route {
+    opacity: 0.4;
+    transition:
+      stroke 220ms ease,
+      opacity 220ms ease;
+  }
+  [data-tenant="a"] .trace-route-a,
+  [data-tenant="b"] .trace-route-b {
+    stroke: var(--trace-bright);
+    stroke-width: 3;
+    opacity: 1;
+  }
+  [data-tenant="a"] .trace-database-a,
+  [data-tenant="b"] .trace-database-b {
+    fill: #42735b;
+    stroke: var(--trace-bright);
+    opacity: 1;
+  }
+  [data-tenant="missing"] .trace-gate rect {
+    fill: #dcebbd;
+    stroke: #dcebbd;
+  }
+  [data-tenant="missing"] .trace-gate text {
+    fill: #174d43;
+  }
+  [data-tenant="missing"] .trace-gate circle {
+    fill: #174d43;
+  }
+  .trace-result {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 9px;
+    min-height: 78px;
+    align-items: start;
+    padding-block: 16px;
+    border-top: 1px solid #6b8978;
+  }
+  .trace-result-symbol {
+    font-size: 25px;
+    line-height: 1;
+    color: #dcebbd;
+  }
+  .trace-result p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.7;
+    max-width: 440px;
+    color: #e4eadc;
+  }
+  .trace-footer {
+    border-top: 1px solid #6b8978;
+    padding-block: 15px;
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    align-items: baseline;
+  }
+  .trace-footer > span {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #d2ddca;
+  }
+  .trace-footer a {
+    font-size: 12px;
+    flex-shrink: 0;
+    text-decoration: none;
+    border-bottom: 1px solid #91ad8d;
+    padding-bottom: 3px;
+  }
+  .trace-footer a span {
+    margin-left: 10px;
+  }
+  .trace-mobile {
+    display: none;
+  }
+  @media (max-width: 580px) {
+    .tenant-explorer {
+      padding: 24px 18px 0;
+    }
+    .tenant-explorer-heading h2 {
+      font-size: 32px;
+    }
+    .trace-controls button {
+      padding: 12px 10px;
+    }
+    .tenant-map {
+      display: none;
+    }
+    .trace-mobile {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding-block: 24px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .trace-mobile > p {
+      position: relative;
+      margin: 0 0 22px;
+      padding: 10px 12px;
+      text-align: center;
+      border: 1px solid #91ad8d;
+      width: 100%;
+    }
+    .trace-mobile > p::after {
+      content: "";
+      position: absolute;
+      height: 23px;
+      width: 1px;
+      background: #dcebbd;
+      top: 100%;
+      left: 50%;
+    }
+    .trace-mobile .trace-mobile-request {
+      border-radius: 24px;
+      width: auto;
+    }
+    .trace-mobile-app {
+      background: #356b5e;
+    }
+    .trace-mobile-databases {
+      display: flex;
+      gap: 12px;
+      width: 100%;
+    }
+    .trace-mobile-databases span {
+      flex: 1;
+      text-align: center;
+      border: 1px solid #759184;
+      border-radius: 8px;
+      padding: 12px 4px;
+      color: #d2ddca;
+    }
+    [data-tenant="a"] .trace-mobile-a,
+    [data-tenant="b"] .trace-mobile-b {
+      background: #dcebbd;
+      color: #174d43;
+      border-color: #dcebbd;
+    }
+    [data-tenant="missing"] .trace-mobile-gate {
+      background: #dcebbd;
+      color: #174d43;
+    }
+    [data-tenant="missing"] .trace-mobile-gate::after {
+      background: #759184;
+    }
+    .trace-controls button {
+      font-size: 13px;
+    }
+    .trace-label {
+      font-size: 12px;
+    }
+    .trace-result {
+      min-height: 100px;
+    }
+    .trace-footer {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tenant-explorer *,
+    .tenant-explorer *::before {
+      transition: none;
+    }
+  }
+</style>

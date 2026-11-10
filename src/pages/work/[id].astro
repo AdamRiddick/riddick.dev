@@ -2,6 +2,8 @@
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import Arrow from "../../components/Arrow.astro";
+import CaseDiagram from "../../components/CaseDiagram.astro";
+import "../../styles/work.css";
 export async function getStaticPaths() {
   const projects = await getCollection("work");
   return projects.map((project) => ({
@@ -17,7 +19,7 @@ const { Content } = await render(project);
   title={`${project.data.title} — Adam Riddick`}
   description={project.data.summary}
 >
-  <article class="case-study shell">
+  <article class="case-study case-editorial shell">
     <a class="text-link back-link" href="/#work">
       ← Back to selected work
     </a>
@@ -38,6 +40,28 @@ const { Content } = await render(project);
         ))}
       </div>
     </header>
+    <section class="case-overview" aria-labelledby="case-decision">
+      <div>
+        <h2 id="case-decision">
+          The decision <em>in context.</em>
+        </h2>
+        <dl class="case-decisions">
+          <div>
+            <dt>The constraint</dt>
+            <dd>{project.data.constraint}</dd>
+          </div>
+          <div>
+            <dt>The approach</dt>
+            <dd>{project.data.approach}</dd>
+          </div>
+          <div>
+            <dt>The team’s result</dt>
+            <dd>{project.data.result}</dd>
+          </div>
+        </dl>
+      </div>
+      <CaseDiagram kind={project.id} />
+    </section>
     <div class="case-body">
       <aside class="case-aside">
         <div>

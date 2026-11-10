@@ -1,313 +1,196 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Arrow from "../components/Arrow.astro";
-import Architecture from "../components/Architecture.astro";
+import TenantExplorer from "../components/TenantExplorer.astro";
+import WritingSketch from "../components/WritingSketch.astro";
+import "../styles/home.css";
 import { getCollection } from "astro:content";
+import { articleLabel, visibleArticles, readingMinutes } from "../lib/writing";
+
 const projects = (await getCollection("work")).sort((a, b) =>
   a.data.number.localeCompare(b.data.number),
 );
-const capabilities = [
-  {
-    number: "01",
-    title: "Architecture & modernisation",
-    text: "A clear direction for complex systems. Evolve established platforms, define service boundaries and make the trade-offs explicit.",
-    tags: "SaaS architecture · Legacy modernisation · API design",
-  },
-  {
-    number: "02",
-    title: "Cloud & operational resilience",
-    text: "Systems that make sense in production. Bring cost, security, observability and recovery into the architectural decisions.",
-    tags: "Microsoft Azure · Identity & security · Observability",
-  },
-  {
-    number: "03",
-    title: "Technical leadership",
-    text: "Connect technical direction to delivery. Support engineers, establish useful standards and help teams make better decisions.",
-    tags: "Technical roadmaps · Design reviews · Mentoring",
-  },
-];
-const experience = [
-  {
-    period: "2025 — 2026",
-    role: "Senior Manager, Engineering",
-    company: "IRIS Software Group",
-    description:
-      "Led internationally distributed engineering teams across an education software portfolio generating £25m+ in annual recurring revenue. Connected architecture, delivery, security and production ownership.",
-  },
-  {
-    period: "2020 — 2025",
-    role: "Senior Architect",
-    company: "IRIS Software Group",
-    description:
-      "Shaped architecture across three products, owning modernisation planning and technical roadmaps while working with developers from early options through implementation.",
-  },
-  {
-    period: "2016 — 2020",
-    role: "Senior Software Engineer",
-    company: "iSAMS",
-    description: "",
-  },
-  {
-    period: "2014 — 2016",
-    role: "Software Development Team Lead",
-    company: "PJA Group",
-    description: "",
-  },
-  {
-    period: "2013 — 2014",
-    role: ".NET Analyst & Developer",
-    company: "Simpson Group",
-    description: "",
-  },
-];
+const articles = visibleArticles(await getCollection("writing"))
+  .sort(
+    (a, b) =>
+      (b.data.publicationMonth ?? "").localeCompare(
+        a.data.publicationMonth ?? "",
+      ) || a.data.order - b.data.order,
+  )
+  .slice(0, 3);
+const projectSketches = {
+  "saas-modernisation": "tenancy",
+  "cloud-and-recovery": "recovery",
+  "engineering-leadership": "handover",
+} as const;
 ---
 
-<Layout>
-  <section class="hero shell">
-    <div class="hero-copy">
-      <p class="eyebrow">
-        <span class="small-cross" aria-hidden="true">
-          +
-        </span>{" "}
-        PRINCIPAL ARCHITECT · UNITED KINGDOM
-      </p>
-      <h1>
-        Clear thinking.
-        <br />
-        <em>Lasting architecture.</em>
-      </h1>
-      <p class="hero-intro">
-        I help engineering teams modernise complex SaaS platforms and turn
-        technical direction into software that delivers.
-      </p>
-      <p class="hero-detail">
-        13+ years connecting architecture, hands-on engineering and technical
-        leadership. I take ownership of what matters and see it through, from
-        the first decision to systems the team can run and evolve.
-      </p>
-      <div class="hero-actions flex flex-wrap items-center gap-6">
-        <a class="button" href="#contact">
-          Discuss a contract <Arrow diagonal />
-        </a>
-        <a class="text-link" href="/adam-riddick-cv.pdf" download>
-          Download CV <span aria-hidden="true">↓</span>
-        </a>
+<Layout description="Adam Riddick on software engineering, architecture and the decisions behind the work. Explore a system, read an article, or see the projects behind the thinking.">
+  <div class="home-page">
+    <div class="shell home-opening">
+      <header class="home-intro" id="about">
+        <div class="home-identity">
+          <p class="home-overline">Software engineer &amp; architect</p>
+          <h1>
+            Adam{" "}
+            <em>
+              Riddick<span>.</span>
+            </em>
+          </h1>
+        </div>
+        <div class="home-intro-copy">
+          <p class="home-introduction">
+            I’m a Principal Architect working across SaaS modernisation, .NET
+            engineering and the teams running software in production.
+          </p>
+          <p class="home-background">
+            I write about the decisions behind that work: how systems fit
+            together, what the trade-offs mean and what teams need to keep
+            changing them.
+          </p>
+          <a class="home-text-link" href="/about/">
+            More about me <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </header>
+    </div>
+
+    <section class="home-reading" aria-labelledby="recent-writing">
+      <div class="shell">
+        <div class="home-section-heading">
+          <div>
+            <p class="home-overline">From experience</p>
+            <h2 id="recent-writing">
+              Recent <em>writing.</em>
+            </h2>
+          </div>
+          <a class="home-text-link" href="/writing/">
+            All writing <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <div class="home-reading-list">
+          {articles.map((article, index) => (
+            <article class="home-reading-entry">
+              <p class="home-reading-date">
+                <time datetime={article.data.publicationMonth}>
+                  {articleLabel(article.data)}
+                </time>
+              </p>
+              <div class="home-reading-copy">
+                <p class="home-overline">
+                  {article.data.topic} · {readingMinutes(article.body ?? "")}{" "}
+                  min read
+                </p>
+                <h3>
+                  <a href={`/writing/${article.id}/`}>{article.data.title}</a>
+                </h3>
+                <p>{article.data.summary}</p>
+              </div>
+              <span class="home-reading-number" aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+            </article>
+          ))}
+        </div>
       </div>
-      <p class="hero-footnote">
-        <span class="location-mark" aria-hidden="true">
-          ⌖
-        </span>{" "}
-        Based in the UK · Contract & consulting enquiries
-      </p>
-    </div>
-    <Architecture />
-  </section>
-  <section class="proof-strip shell" aria-label="Experience at a glance">
-    <div class="proof-intro">
-      <span class="eyebrow">
-        EXPERIENCE,
-        <br />
-        IN CONTEXT
-      </span>
-      <span class="proof-arrow" aria-hidden="true">
-        ↗
-      </span>
-    </div>
-    <div>
-      <strong>
-        13<span>+</span>
-      </strong>
-      <p>Years in software engineering</p>
-    </div>
-    <div>
-      <strong>
-        2 million<span>+</span>
-      </strong>
-      <p>Monthly users of live platform services</p>
-    </div>
-    <div>
-      <strong>
-        £25m<span>+</span>
-      </strong>
-      <p>Annual recurring revenue across the portfolio</p>
-    </div>
-  </section>
-  <section class="section shell" id="work">
-    <div class="section-heading">
-      <div>
-        <p class="eyebrow">01 / SELECTED WORK</p>
-        <h2>
-          Decisions that made
+    </section>
+
+    <section
+      class="shell home-explanation"
+      aria-labelledby="thinking-in-practice"
+    >
+      <div class="home-explanation-copy">
+        <p class="home-overline">Thinking in practice · Architecture</p>
+        <h2 id="thinking-in-practice">
+          Where does
           <br />
-          <em>a difference.</em>
+          <em>the boundary sit?</em>
         </h2>
-      </div>
-    </div>
-    <div class="project-list">
-      {projects.map((project) => (
+        <p>
+          A shared application doesn’t have to mean a shared database. The
+          request still needs a clear route to the right tenant’s data.
+        </p>
+        <p class="home-explanation-prompt">
+          Try switching tenants. Then remove the context. Where should the
+          request stop?
+        </p>
         <a
-          class={`project project-${project.data.number}`}
-          href={`/work/${project.id}/`}
+          class="home-text-link"
+          href="/writing/multitenant-application-separate-databases/"
         >
-          <div class="project-index">
-            {project.data.number}
-            <span aria-hidden="true">/</span>
-          </div>
-          <div class="project-main">
-            <p class="eyebrow">{project.data.category}</p>
-            <h3>{project.data.title}</h3>
-            <p>{project.data.summary}</p>
-            <div class="flex flex-wrap gap-2">
-              {project.data.tags.map((tag) => (
-                <span class="tag">{tag}</span>
-              ))}
-            </div>
-          </div>
-          <div class="project-end">
-            <span class="project-outcome">{project.data.outcome}</span>
-            <span class="circle-arrow">
-              <Arrow diagonal />
-            </span>
-            <span class="project-read">Explore the work</span>
-          </div>
+          Read the reasoning <span aria-hidden="true">↗</span>
         </a>
-      ))}
-    </div>
-  </section>
-  <section class="expertise-section" id="expertise">
-    <div class="shell section">
-      <div class="section-heading">
+      </div>
+      <TenantExplorer />
+    </section>
+
+    <section class="shell home-work" id="work" aria-labelledby="selected-work">
+      <span id="expertise"></span>
+      <div class="home-section-heading">
         <div>
-          <p class="eyebrow">02 / HOW I CAN HELP</p>
-          <h2>
-            From system design.
-            <br />
-            <em>Through to delivery &amp; beyond.</em>
+          <p class="home-overline" id="experience">
+            The work behind the thinking
+          </p>
+          <h2 id="selected-work">
+            Selected <em>work.</em>
           </h2>
         </div>
-        <p class="section-intro">
-          Focused architectural support, an embedded contract role or technical
-          leadership for the work ahead.
+        <p>
+          Systems and practices I helped teams build.
+          <br />
+          <a href="/about/#experience">My roles and responsibilities ↗</a>
         </p>
       </div>
-      <div class="capabilities">
-        {capabilities.map((item) => (
-          <article>
-            <span class="cap-number">
-              {item.number} <span aria-hidden="true">↗</span>
-            </span>
-            <h3>{item.title}</h3>
-            <p>{item.text}</p>
-            <p class="cap-tags">{item.tags}</p>
-          </article>
+      <div class="home-work-grid">
+        {projects.map((project) => (
+          <a class="home-work-card" href={`/work/${project.id}/`}>
+            <div class="home-work-image" aria-hidden="true">
+              <WritingSketch
+                kind={
+                  projectSketches[project.id as keyof typeof projectSketches]
+                }
+                compact
+              />
+            </div>
+            <p class="home-overline">{project.data.category}</p>
+            <h3>
+              {project.data.title}
+              <span aria-hidden="true">↗</span>
+            </h3>
+            <p class="home-work-summary">{project.data.summary}</p>
+            <p class="home-work-outcome">{project.data.outcome}</p>
+          </a>
         ))}
       </div>
-    </div>
-  </section>
-  <section class="section shell experience-section" id="experience">
-    <div class="experience-aside">
-      <p class="eyebrow">03 / EXPERIENCE</p>
-      <h2>
-        Built on <br />
-        <em>experience.</em>
-      </h2>
-      <p>
-        From writing the software to shaping the systems and leading the teams
-        behind it.
-      </p>
-      <a class="text-link" href="/adam-riddick-cv.pdf" download>
-        Get the full CV <span aria-hidden="true">↓</span>
-      </a>
-    </div>
-    <div class="timeline">
-      {experience.map((job, i) => (
-        <article class:list={["career-row", { "career-row-small": i > 1 }]}>
-          <p class="career-period">{job.period}</p>
-          <div>
-            <h3>{job.role}</h3>
-            <p class="career-company">{job.company}</p>
-            {job.description && (
-              <p class="career-description">{job.description}</p>
-            )}
-          </div>
-        </article>
-      ))}
-    </div>
-  </section>
-  <section class="about-section shell" id="about">
-    <div class="about-panel">
-      <div class="about-mark" aria-hidden="true">
-        ar<span>.</span>
-        <small>
-          OWN THE CHALLENGE.
-          <br />
-          SEE IT THROUGH.
-        </small>
-      </div>
-      <div>
-        <p class="eyebrow">04 / A LITTLE ABOUT ME</p>
-        <h2>
-          An engineer’s curiosity.
-          <br />
-          <em>An architect’s perspective.</em>
-        </h2>
-        <p>
-          I’m Adam, a UK-based Principal Architect. My career has taken me from
-          .NET development through cross-product architecture to leading a
-          large-scale, distributed engineering organisation.
-        </p>
-        <p>
-          I care about decisions that hold up beyond the design review: what
-          they mean for the engineers building the system, the people using it
-          and the teams operating it.
-        </p>
-        <div class="honours" aria-label="Awards and recognition">
-          <span class="honours-symbol" aria-hidden="true">
-            ✧
-          </span>
-          <div>
-            <strong>Award-winning engineering leadership</strong>
-            <p>4× Top Talent Awards · Platinum recognition</p>
-          </div>
+    </section>
+
+    <section class="home-contact" id="contact" aria-labelledby="get-in-touch">
+      <div class="shell home-contact-inner">
+        <div>
+          <p class="home-overline">Continue the conversation</p>
+          <h2 id="get-in-touch">
+            Something to
+            <br />
+            <em>think through?</em>
+          </h2>
         </div>
-        <p class="made-in">Made in the United Kingdom</p>
-        <div class="qualifications">
-          <span>Computer Science · First Class Honours</span>
-          <span>Microsoft DevOps Engineer Expert · Awarded 2023</span>
+        <div class="home-contact-copy">
+          <p>
+            If a piece here connects with your own work, I’d be interested to
+            hear about it.
+          </p>
+          <a href="mailto:adam@riddick.dev">
+            adam@riddick.dev <span aria-hidden="true">↗</span>
+          </a>
+          <a
+            class="home-linkedin"
+            href="https://www.linkedin.com/in/adam-riddick/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Or find me on LinkedIn
+          </a>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="contact-section shell" id="contact">
-    <div>
-      <p class="eyebrow">05 / START A CONVERSATION</p>
-      <h2>
-        Complex platform? Not a problem.
-        <br />
-        <em>Let’s find a way forward together.</em>
-      </h2>
-      <p>
-        Looking for a contract architect, a fresh perspective on your platform
-        or technical leadership? Tell me what you’re working on.
-      </p>
-      <a class="contact-email" href="mailto:adam@riddick.dev">
-        adam@riddick.dev <Arrow diagonal />
-      </a>
-      <div class="contact-links flex flex-wrap gap-7">
-        <a href="/adam-riddick-cv.pdf" download>
-          Download CV ↓
-        </a>
-        <a
-          href="https://www.linkedin.com/in/adam-riddick/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Connect on LinkedIn ↗
-        </a>
-      </div>
-    </div>
-    <div class="contact-glyph" aria-hidden="true">
-      ↗
-    </div>
-  </section>
+    </section>
+  </div>
 </Layout>

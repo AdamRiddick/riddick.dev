@@ -1,0 +1,100 @@
+.case-editorial {
+  max-width: 1200px;
+}
+.case-editorial .case-header {
+  max-width: 960px;
+}
+.case-editorial .case-header h1 {
+  font-size: clamp(38px, 4.8vw, 66px);
+  line-height: 1.08;
+}
+.case-editorial .case-meta {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.case-editorial .eyebrow,
+.case-editorial .tag {
+  font-size: 12px;
+}
+.case-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 60px;
+  align-items: center;
+  padding-block: 36px 48px;
+  border-top: 1px solid var(--line);
+}
+.case-overview h2 {
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 500;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  margin: 0 0 28px;
+}
+.case-overview h2 em {
+  font-size: 1.15em;
+}
+.case-decisions {
+  margin: 0;
+}
+.case-decisions > div + div {
+  margin-top: 22px;
+}
+.case-decisions dt {
+  font-size: 12px;
+  font-family: "IBM Plex Mono", monospace;
+  margin-bottom: 7px;
+  color: var(--green);
+}
+.case-decisions dd {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 510px;
+}
+.case-editorial .case-body {
+  border-top: 1px solid var(--line);
+  padding-top: 38px;
+  grid-template-columns: minmax(0, 240px) minmax(0, 1fr);
+  gap: 60px;
+}
+.case-editorial .case-aside .eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.3px;
+}
+.case-editorial .case-aside .case-role,
+.case-editorial .case-aside .case-continuity {
+  font-size: 14px;
+}
+.case-editorial .prose {
+  max-width: 70ch;
+  font-size: 17px;
+  line-height: 1.85;
+}
+.case-editorial .prose p {
+  font-size: inherit;
+  line-height: inherit;
+  margin-bottom: 18px;
+}
+@media (max-width: 950px) {
+  .case-overview {
+    gap: 28px;
+  }
+  .case-editorial .case-body {
+    grid-template-columns: minmax(0, 190px) minmax(0, 1fr);
+    gap: 30px;
+  }
+}
+@media (max-width: 700px) {
+  .case-overview {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  .case-editorial .case-body {
+    grid-template-columns: 1fr;
+  }
+  .case-editorial .prose {
+    font-size: 16px;
+  }
+}

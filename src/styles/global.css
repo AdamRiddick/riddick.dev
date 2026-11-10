@@ -106,6 +106,13 @@ summary:focus-visible {
 .text-link:hover {
   color: #718448;
 }
+.desktop-nav a[aria-current],
+.mobile-menu a[aria-current] {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
+}
 .mobile-menu {
   display: none;
 }
@@ -623,7 +630,7 @@ h2 em {
 .site-footer {
   border-top: 1px solid var(--line);
   padding-block: 30px;
-  font-size: 10px;
+  font-size: 12px;
   color: #63705c;
 }
 .footer-name {

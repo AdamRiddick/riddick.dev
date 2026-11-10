@@ -1,10 +1,32 @@
 /* Writing: a quiet editorial space within the existing identity. */
-.desktop-nav a[aria-current],
-.mobile-menu a[aria-current] {
-  color: #718448;
-}
 .writing-index {
   padding-block: 52px 40px;
+}
+
+.personal-writing {
+  max-width: 1120px;
+}
+.personal-writing .writing-intro {
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+  padding-block: 0 12px;
+  margin-bottom: 30px;
+}
+.personal-writing .writing-intro h1 {
+  font-size: clamp(50px, 7vw, 88px);
+  letter-spacing: -3px;
+}
+.personal-writing .writing-intro h1 span {
+  color: #718348;
+}
+.personal-writing .writing-intro-note {
+  max-width: 450px;
+}
+.personal-writing .writing-intro-note p {
+  font-size: 19px;
+  line-height: 1.7;
+  margin-bottom: 0;
 }
 .writing-intro {
   display: grid;
@@ -100,9 +122,9 @@
   flex-wrap: wrap;
   gap: 7px 15px;
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: 12px;
   line-height: 1.8;
-  color: #6f7e61;
+  color: var(--muted);
 }
 .featured-copy h2 {
   font-size: 37px;
@@ -249,8 +271,8 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 13px 20px;
-  font-size: 10px;
-  color: #74806a;
+  font-size: 13px;
+  color: var(--muted);
   padding-block: 20px 25px;
   border-bottom: 1px solid var(--line);
 }
@@ -277,14 +299,14 @@
   top: calc(var(--header-height) + 30px);
 }
 .note-contents .eyebrow {
-  font-size: 8px;
+  font-size: 12px;
   margin-bottom: 19px;
 }
 .note-contents a {
   display: block;
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.6;
-  color: #74806a;
+  color: var(--muted);
   padding-block: 7px;
 }
 .note-contents a:hover {
@@ -299,7 +321,7 @@
 }
 .note-takeaway .eyebrow {
   color: #bdcda9;
-  font-size: 8px;
+  font-size: 12px;
   margin-bottom: 12px;
 }
 .note-takeaway > p:last-child {
@@ -576,7 +598,7 @@
     font-size: 15px;
   }
   .field-note-byline {
-    font-size: 9px;
+    font-size: 12px;
     gap: 12px 14px;
     padding-block: 14px 20px;
   }
@@ -593,14 +615,14 @@
     padding: 17px;
   }
   .article-prose {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.85;
   }
   .article-prose h2 {
     font-size: 25px;
   }
   .article-prose table {
-    font-size: 11px;
+    font-size: 13px;
   }
   .article-prose th,
   .article-prose td {
@@ -619,5 +641,108 @@
   }
   .note-conversation p:not(.eyebrow) {
     font-size: 16px;
+  }
+}
+
+.article-explorer {
+  margin-bottom: 35px;
+}
+.field-note .eyebrow,
+.field-note .writing-sketch .diagram-meta {
+  font-size: 12px;
+}
+.field-note .writing-sketch figcaption {
+  font-size: 13px;
+}
+.personal-writing .writing-filters {
+  gap: 8px 28px;
+  padding-block: 8px;
+}
+.personal-writing .writing-filters button {
+  font-size: 14px;
+  padding-block: 12px;
+}
+.personal-writing .featured-note {
+  grid-template-columns: 1.25fr 1fr;
+  gap: 45px;
+  background: transparent;
+  border: 0;
+  padding: 16px 0 32px;
+}
+.personal-writing .featured-copy h2 {
+  text-wrap: balance;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(37px, 4.1vw, 58px);
+  line-height: 1.04;
+  margin-block: 18px;
+}
+.personal-writing .featured-copy > p:not(.eyebrow) {
+  font-size: 16px;
+  line-height: 1.75;
+}
+.personal-writing .featured-read {
+  font-size: 14px;
+}
+.personal-writing .writing-sketch {
+  padding: 20px 12px;
+  border: 12px solid var(--green);
+  background: #e9ecdf;
+}
+.personal-writing .writing-sketch .diagram-meta {
+  display: none;
+}
+.personal-writing .writing-sketch figcaption {
+  font-size: 12px;
+  color: var(--green);
+}
+.personal-writing .note-metadata {
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+}
+.personal-writing .note-row {
+  grid-template-columns: 35px 1fr 30px;
+}
+.personal-writing .note-index {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-style: italic;
+  color: var(--muted);
+}
+.personal-writing .note-row p {
+  font-size: 15px;
+}
+.personal-writing .writing-endnote .eyebrow {
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.personal-writing .writing-endnote > p:not(.eyebrow) {
+  font-size: 15px;
+}
+@media (max-width: 800px) {
+  .personal-writing .writing-intro {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .personal-writing .featured-note {
+    gap: 25px;
+  }
+}
+@media (max-width: 580px) {
+  .personal-writing .featured-note {
+    grid-template-columns: 1fr;
+  }
+  .personal-writing .writing-sketch svg {
+    max-height: 175px;
+  }
+  .personal-writing .note-row {
+    gap: 14px;
+    grid-template-columns: 25px 1fr;
+  }
+  .personal-writing .note-row .circle-arrow {
+    display: none;
   }
 }

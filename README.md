@@ -26,13 +26,19 @@ npm run check:output
 npm run test:writing
 ```
 
-The shared header stays visible while scrolling. Navigation includes Services, linking to the How I can help section, with smooth anchor scrolling and clearance beneath the header. The compact menu is used on smaller screens.
+The writing-led site uses Writing, Work and About navigation. The shared header stays visible while scrolling, with clearance for anchor links and a compact menu on smaller screens. Adam approved this direction on 10 November 2026.
 
-The static site is generated into `dist/`. There is no server adapter, database, analytics or remote font dependency. Browser JavaScript closes the mobile menu and filters the Writing index by topic. Email links open the visitor's email application.
+The static site is generated into `dist/`. There is no server adapter, database, analytics or remote font dependency. Browser JavaScript closes the mobile menu, filters the Writing index by topic and switches the homepage's conceptual tenant-routing example. Without JavaScript, that example remains a static diagram. Email links open the visitor's email application.
 
 ## Edit the content
 
-- `src/pages/index.astro`: homepage copy, expertise and career history.
+- `src/pages/index.astro`: personal introduction, recent writing and selected work.
+- `src/pages/about.astro`: background, career history, qualifications and CV link.
+- `src/assets/adam-riddick-portrait.png`: approved portrait, optimised to responsive WebP images during the build.
+- `src/components/TenantExplorer.astro`: interactive conceptual tenant-routing example on the homepage and tenancy article, with a simpler diagram on phones; no real requests or tenant data.
+- `src/components/CaseDiagram.astro` and `src/styles/work.css`: case-study diagrams and presentation. Constraints, approaches and results are stored with each case study.
+- `src/styles/home.css`: homepage presentation.
+- `src/styles/personal.css`: About presentation.
 - `src/pages/writing/`: Writing index and article template.
 - `src/content/writing/*.md`: draft and published articles.
 - `src/lib/writing.ts`: visibility, month labels and estimated reading time.
@@ -69,7 +75,7 @@ Approved public figures: 13+ years' experience, 2 million+ monthly users of the 
 
 The cloud and recovery case study explicitly combines separate initiatives across the architecture and engineering leadership roles. Case studies describe team delivery with Adam's architectural or management responsibility, not sole implementation.
 
-A portrait can be added when a suitable photo is supplied. The current identity artwork does not depict a person.
+Adam approved the About portrait on 10 November 2026. It was generated from his supplied likeness and outfit references with a new professional interior background. Source photographs remain outside the repository.
 
 The 4 November revision tightens page spacing, expands the conceptual architecture illustration and presents the case studies around shared delivery, Adam's contribution and continuity of team ownership. FinOps describes the cost optimisation work already documented in the CV. The site and public CV now use `adam@riddick.dev`; mailbox setup is managed separately.
 

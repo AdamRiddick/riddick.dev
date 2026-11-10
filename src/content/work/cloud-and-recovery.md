@@ -8,6 +8,9 @@ tags: ["FinOps", "Microsoft Azure", "Observability"]
 period: "2020–2026 · Architecture and engineering leadership roles"
 role: "Migration planning, Azure design and cost optimisation, with clearer ownership of production services."
 continuity: "Operational visibility and service ownership that help teams manage costs and respond to incidents."
+constraint: "Improve the cloud estate while maintaining compatibility, security and day-to-day delivery."
+approach: "Address cost, provisioning and recovery across separate initiatives, with clearer service ownership."
+result: "Provisioning moved from days to hours, alongside recurring Azure savings and reduced average recovery time."
 ---
 
 ## The shared challenge

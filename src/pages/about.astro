@@ -1,0 +1,144 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import portrait from "../assets/adam-riddick-portrait.png";
+import "../styles/personal.css";
+
+const experience = [
+  {
+    period: "2025 — 2026",
+    role: "Senior Manager, Engineering",
+    company: "IRIS Software Group",
+    description:
+      "Led internationally distributed engineering teams across an education software portfolio generating £25m+ in annual recurring revenue. Connected architecture, delivery, security and production ownership.",
+  },
+  {
+    period: "2020 — 2025",
+    role: "Senior Architect",
+    company: "IRIS Software Group",
+    description:
+      "Shaped architecture across three products, owning modernisation planning and technical roadmaps while working with developers from early options through implementation.",
+  },
+  {
+    period: "2016 — 2020",
+    role: "Senior Software Engineer",
+    company: "iSAMS",
+    description: "",
+  },
+  {
+    period: "2014 — 2016",
+    role: "Software Development Team Lead",
+    company: "PJA Group",
+    description: "",
+  },
+  {
+    period: "2013 — 2014",
+    role: ".NET Analyst & Developer",
+    company: "Simpson Group",
+    description: "",
+  },
+];
+---
+
+<Layout
+  title="About — Adam Riddick"
+  description="Adam Riddick’s background in software engineering, SaaS architecture and engineering leadership. Based in the UK."
+>
+  <div class="shell personal-about">
+    <header class="personal-intro">
+      <div class="personal-intro-copy">
+        <p class="personal-kicker">About me</p>
+        <h1>
+          An engineer’s <em>curiosity.</em>
+        </h1>
+        <p class="personal-lead">
+          I’m Adam, a UK-based Principal Architect. Over 13+ years, my career
+          has taken me from .NET development through cross-product architecture
+          to leading a distributed engineering organisation.
+        </p>
+        <p class="personal-context">
+          I care about what decisions mean for the engineers building the
+          system, the people using it and the teams operating it. The work needs
+          to make sense to the people who will keep changing it.
+        </p>
+      </div>
+      <Image
+        class="personal-portrait"
+        src={portrait}
+        alt="Portrait of Adam Riddick"
+        width={640}
+        widths={[280, 320, 560, 640]}
+        sizes="(max-width: 800px) 280px, 320px"
+        format="webp"
+        quality={85}
+        loading="eager"
+      />
+    </header>
+
+    <section class="personal-section" aria-labelledby="background">
+      <h2 id="background">What I’ve worked on</h2>
+      <div class="personal-prose">
+        <p>
+          My architecture work has included modernising established SaaS
+          platforms, tenant isolation, identity and cross-product integration.
+          The teams I worked with delivered reporting, integration and
+          authentication services used by 2 million+ people each month.
+        </p>
+        <p>
+          I’ve also worked across engineering and operations on FinOps, cloud
+          costs, provisioning and service recovery. In engineering leadership,
+          my responsibilities included technical direction, shared delivery
+          practices and clearer production ownership.
+        </p>
+        <p>
+          <a href="/#work">Read the case studies</a> for the team’s work and my
+          part in it.
+        </p>
+      </div>
+    </section>
+
+    <section class="personal-section" id="experience" aria-labelledby="career">
+      <div class="personal-section-heading">
+        <h2 id="career">Experience</h2>
+        <a href="/adam-riddick-cv.pdf" download>
+          Download CV
+        </a>
+      </div>
+      <div class="personal-career">
+        {experience.map((job) => (
+          <article>
+            <p class="personal-metadata">{job.period}</p>
+            <h3>{job.role}</h3>
+            <p class="personal-employer">{job.company}</p>
+            {job.description && <p>{job.description}</p>}
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="personal-section" aria-labelledby="qualifications">
+      <h2 id="qualifications">Qualifications &amp; recognition</h2>
+      <ul class="personal-qualifications">
+        <li>Computer Science · First Class Honours</li>
+        <li>Microsoft DevOps Engineer Expert · Awarded 2023</li>
+        <li>Four Top Talent Awards · Platinum recognition</li>
+      </ul>
+    </section>
+
+    <section class="personal-contact" id="contact" aria-labelledby="say-hello">
+      <h2 id="say-hello">Say hello</h2>
+      <p>
+        You can reach me at{" "}
+        <a href="mailto:adam@riddick.dev">adam@riddick.dev</a> or{" "}
+        <a
+          href="https://www.linkedin.com/in/adam-riddick/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          on LinkedIn
+        </a>
+        .
+      </p>
+    </section>
+  </div>
+</Layout>

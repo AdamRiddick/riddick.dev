@@ -24,8 +24,10 @@ The design should feel personal, precise and calm. Original project diagrams and
 
 ## Voice and professional positioning
 
+Approved by Adam on 10 November 2026: lead with Adam’s writing and selected work, with career details and the CV on About. The homepage introduces Adam directly, demonstrates an architecture decision through an interactive conceptual tenant-routing example and uses a conversational contact invitation. This replaces the previous contract-first homepage emphasis.
+
 - Principal Architect, with hands-on engineering and engineering leadership experience.
-- Contract roles first, with a clear secondary route for consulting enquiries.
+- Lead with practical engineering thinking and team-delivered work. Keep contact invitations conversational.
 - Explain constraints, decisions and outcomes in ordinary language.
 - Be specific about Adam's responsibility and credit the teams delivering the work.
 - Take ownership of what matters, see work through, and leave teams able to operate and evolve their systems.
