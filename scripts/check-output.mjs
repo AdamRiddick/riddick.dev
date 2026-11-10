@@ -53,14 +53,25 @@ for (const file of html) {
 }
 const homepage = await readFile(resolve(root, "index.html"), "utf8");
 for (const text of [
-  "FinOps",
-  "Made in the United Kingdom",
-  "Top Talent Awards",
-  "Platinum recognition",
-  "Annual recurring revenue across the portfolio",
+  "recent-writing",
+  "selected-work",
+  "get-in-touch",
+  "data-tenant-explorer",
 ]) {
   if (!homepage.includes(text))
     failures.push(`Homepage: missing requested content ${text}`);
+}
+const about = await readFile(resolve(root, "about/index.html"), "utf8");
+for (const text of [
+  "FinOps",
+  "Top Talent Awards",
+  "Platinum recognition",
+  "Computer Science",
+  "DevOps Engineer Expert",
+  "£25m+",
+]) {
+  if (!about.includes(text))
+    failures.push(`About: missing career or recognition content ${text}`);
 }
 for (const file of html.filter((f) => f.includes("/work/"))) {
   const body = await readFile(file, "utf8");

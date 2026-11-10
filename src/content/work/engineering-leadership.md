@@ -8,6 +8,9 @@ tags: ["Technical leadership", "SDLC", "Secure delivery"]
 period: "July 2025 – October 2026 · Senior Manager, Engineering"
 role: "Engineering leadership, cross-team alignment and support for technical delivery and security."
 continuity: "Engineering standards and service ownership embedded in the teams doing the work."
+constraint: "Distributed teams needed consistent engineering practices connected to product priorities, security and production."
+approach: "A shared development lifecycle, with peer review, security evidence and service ownership embedded in delivery."
+result: "Teams increased release frequency and resolved all engineering audit findings."
 ---
 
 ## The shared challenge

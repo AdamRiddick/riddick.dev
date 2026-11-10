@@ -13,6 +13,9 @@ const work = defineCollection({
     period: z.string(),
     role: z.string(),
     continuity: z.string(),
+    constraint: z.string(),
+    approach: z.string(),
+    result: z.string(),
   }),
 });
 const writing = defineCollection({

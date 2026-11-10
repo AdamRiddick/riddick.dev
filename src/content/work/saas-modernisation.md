@@ -8,6 +8,9 @@ tags: ["SaaS architecture", "Azure", ".NET", "Identity"]
 period: "Senior Architect → Senior Manager, Engineering"
 role: "Modernisation planning, architectural direction and support for the teams delivering the changes."
 continuity: "Shared standards, explicit service boundaries and a development lifecycle the teams could keep using."
+constraint: "New shared capabilities had to coexist with a legacy core, tenant isolation and cross-product integrations."
+approach: "A hybrid architecture: API-first, multi-tenant .NET components alongside the single-tenant backbone and database."
+result: "The teams delivered reporting, integration and authentication services used by 2 million+ people each month."
 ---
 
 ## The shared challenge

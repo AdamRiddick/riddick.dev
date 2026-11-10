@@ -5,6 +5,7 @@ import type { CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import Arrow from "../../components/Arrow.astro";
 import WritingSketch from "../../components/WritingSketch.astro";
+import TenantExplorer from "../../components/TenantExplorer.astro";
 import {
   visibleArticles,
   articleLabel,
@@ -75,7 +76,13 @@ const related = visibleArticles(
           <p class="eyebrow">THE SHORT VERSION</p>
           <p>{article.data.takeaway}</p>
         </div>
-        <WritingSketch kind={article.data.sketch} />
+        {article.id === "multitenant-application-separate-databases" ? (
+          <div class="article-explorer">
+            <TenantExplorer article />
+          </div>
+        ) : (
+          <WritingSketch kind={article.data.sketch} />
+        )}
         <div class="article-prose">
           <Content />
         </div>

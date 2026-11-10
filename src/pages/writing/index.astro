@@ -31,34 +31,23 @@ const topics = [
   description="Practical notes on architecture, operations and the decisions that teams live with."
   noindex={import.meta.env.DEV}
 >
-  <div class="shell writing-index">
+  <div class="shell writing-index personal-writing">
     <header class="writing-intro">
       <div>
-        <p class="eyebrow">WRITING</p>
         <h1>
-          The thinking
-          <br />
-          <em>behind the decisions.</em>
+          Writing<span>.</span>
         </h1>
       </div>
       <div class="writing-intro-note">
         <p>
-          Practical notes on architecture, operations and the decisions that
-          teams live with.
+          Decisions, trade-offs and things I’ve learned from building software
+          with teams.
         </p>
-        <p>
-          What shaped the decision, what it meant for the team, and when a
-          different approach might make more sense.
-        </p>
-        <span class="writing-cadence">
-          Published when there’s something worth sharing.
-        </span>
       </div>
     </header>
     {articles.length > 0 ? (
       <>
         <nav class="writing-filters" aria-label="Filter articles by topic">
-          <span class="eyebrow">EXPLORE</span>
           {topics.map((topic, i) => (
             <button
               type="button"
@@ -77,7 +66,6 @@ const topics = [
               data-writing-topic={featured.data.topic}
             >
               <div class="featured-copy">
-                <p class="eyebrow">01 / A GOOD PLACE TO START</p>
                 <div class="note-metadata">
                   <span>{featured.data.topic}</span>
                   {articleLabel(featured.data) && (
@@ -147,7 +135,7 @@ const topics = [
       </div>
     )}
     <aside class="writing-endnote">
-      <p class="eyebrow">A NOTE ON THESE NOTES</p>
+      <p class="eyebrow">A note on these notes</p>
       <p>
         Good architecture needs context. These pieces explore the choices,
         constraints and responsibilities behind the systems we build, with room
